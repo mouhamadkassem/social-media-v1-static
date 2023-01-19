@@ -1,0 +1,13 @@
+.post-details {
+  margin: 0 200px;
+  position: relative;
+  top: 60px;
+  display: flex;
+  justify-content: center;
+}
+
+@media (max-width: 756px) {
+  .post-details {
+    margin: 0 10px;
+  }
+}

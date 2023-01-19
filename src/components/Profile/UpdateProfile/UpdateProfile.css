@@ -1,0 +1,95 @@
+:root {
+  --bg_color: rgb(250, 239, 250);
+  --darkviolet: rgb(125, 66, 125);
+}
+
+.UpdateProfile {
+  width: 40%;
+  background-color: white;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  border-radius: 20px;
+  background-color: #d3bae9;
+  padding: 2.5%;
+}
+
+.updateProfileForm {
+  width: 90%;
+}
+
+.UpdateProfile h2 {
+  text-align: center;
+}
+
+.UpdateProfile form {
+  width: 100%;
+}
+
+.update-pro-input {
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+.update-pro-input input {
+  width: calc(100% - 20px);
+  padding: 10px;
+  background-color: var(--bg_color);
+  border: none;
+  border-bottom: 3px solid violet;
+  border-radius: 10px;
+  outline: none;
+}
+
+.btn-update-pro {
+  text-align: center;
+  position: relative;
+  margin-top: 5%;
+  text-align: center;
+}
+
+.btn-update-pro button {
+  background: linear-gradient(45deg, #f3d0f5, violet);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 400;
+}
+
+.btn-update-pro button:hover {
+  background: linear-gradient(45deg, violet, var(--darkviolet));
+  color: white;
+}
+
+.to-close-form {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  color: var(--darkviolet);
+  cursor: pointer;
+}
+
+.to-close-form:hover {
+  color: var(--violet);
+}
+
+@media (max-width: 450px) {
+  .UpdateProfile {
+    width: 70%;
+  }
+}
+
+@media (max-width: 756px) {
+  .UpdateProfile {
+    width: 60%;
+  }
+}
+
+@media (max-width: 1200px) {
+  .UpdateProfile {
+    width: 50%;
+  }
+}

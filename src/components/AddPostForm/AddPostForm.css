@@ -1,0 +1,79 @@
+:root {
+  --bg_color: rgb(250, 239, 250);
+  --darkviolet: rgb(125, 66, 125);
+}
+
+.AddPostForm {
+  background-color: #d3bae9;
+  width: 30%;
+  padding: 10px;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-decoration: none;
+  color: black !important;
+  border-radius: 20px;
+}
+
+.add-post-model {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.add-post-model p {
+  background-color: rgb(160, 201, 235);
+  margin: 0;
+  padding: 10px;
+  border-radius: 10px;
+  text-align: center;
+  cursor: pointer;
+  position: relative;
+}
+
+.form-post {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+}
+
+.form-post button {
+  border: none;
+  border-radius: 20px;
+  background: linear-gradient(45deg, #f3d0f5, blue);
+  margin-top: 10px;
+  padding: 10px;
+  color: white;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+.form-post button:hover {
+  background: linear-gradient(45deg, var(--bg_color), var(--violet));
+}
+
+.close-form {
+  position: absolute;
+  right: 10px;
+  color: var(--darkviolet);
+  cursor: pointer;
+}
+
+.close-form:hover {
+  color: var(--violet);
+}
+
+.form-post input {
+  border: none;
+  border-radius: 10px;
+  outline: none;
+  height: 50px;
+  background-color: var(--bg_color);
+}
+
+@media (max-width: 756px) {
+  .AddPostForm {
+    width: 50%;
+  }
+}

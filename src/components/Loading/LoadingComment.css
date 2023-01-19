@@ -1,0 +1,24 @@
+.LoadingComment {
+  position: relative;
+
+  width: 100%;
+  height: 155px;
+  border-radius: 20px;
+  background-color: var(--bg_color);
+}
+
+.LoadingComment span {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0.5;
+  color: var(--darkviolet);
+  display: flex;
+}
+
+@media (max-width: 1200px) {
+  .LoadingComment {
+    height: 130px;
+  }
+}

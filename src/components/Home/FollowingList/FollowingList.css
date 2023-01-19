@@ -1,0 +1,108 @@
+:root {
+  --bg_color: rgb(250, 239, 250);
+  --darkviolet: rgb(125, 66, 125);
+  --blueViolet: #d3bae9;
+  --violet: violet;
+}
+
+.FollowingList {
+  position: sticky;
+  top: 50px;
+  background-color: var(--bg_color);
+  height: calc(100vh - 50px);
+  display: flex;
+  flex-direction: column;
+  overflow-y: auto;
+}
+
+.rightSide .toSearch {
+  position: relative;
+  left: calc(12.5% - 10px);
+}
+
+.friends {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  border-bottom: 2px solid var(--blueViolet);
+  margin: 0 10px;
+  padding: 10px 20px;
+}
+
+.friend {
+  display: flex;
+  align-items: center;
+}
+
+.friend img {
+  width: 50px;
+  height: 50px;
+  border-radius: 100%;
+  border: 3px solid var(--blueViolet);
+}
+
+.friend h4 {
+  margin: 0;
+  margin-left: 10px;
+}
+
+.friend-link {
+  margin: 0 10px;
+  font-size: 20px;
+  text-decoration: none;
+  color: var(--darkviolet);
+}
+
+.friend-link:hover {
+  color: var(--violet);
+}
+
+.noFollowing {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100%;
+  font-size: 20px;
+}
+
+.noFollowing p {
+  max-width: 50%;
+  text-align: center;
+  margin: 5px 0;
+  opacity: 0.5;
+}
+.toFollow {
+  color: var(--darkviolet);
+  font-weight: bold;
+  font-size: 22px;
+  transition: 0.3s;
+}
+.toFollow:hover {
+  color: var(--violet);
+  font-size: 25px;
+  transition: 0.3s;
+}
+
+@media (max-width: 1200px) {
+  .friends {
+    padding: 5px 10px;
+    margin: 0 5px;
+  }
+
+  .friend img {
+    width: 25px;
+    height: 25px;
+  }
+  .friend-link {
+    font-size: 12px;
+    margin: 0 5px;
+  }
+}
+
+@media (max-width: 756px) {
+  .FollowingList {
+    display: none;
+  }
+}
