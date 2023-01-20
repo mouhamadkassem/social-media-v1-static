@@ -34,7 +34,7 @@ const Chat = () => {
     socket.emit("join-room", chatId);
   }, [chat]);
 
-  const socket = io.connect("http://localhost:5000");
+  const socket = io.connect("https://social-media-v1.onrender.com");
 
   const handleSend = () => {
     const newMessage = {
