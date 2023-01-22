@@ -49,6 +49,7 @@ const Chat = () => {
   };
 
   useEffect(() => {
+    console.log(messages);
     socket.on("receive-message", (data) => {
       setMessages((message) => [...message, data]);
     });
