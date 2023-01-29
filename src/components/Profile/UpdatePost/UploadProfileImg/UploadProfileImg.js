@@ -62,6 +62,9 @@ const UploadProfileImg = ({ setUploadProImg }) => {
                 </div>
               )}
             </Dropzone>
+            {formik.touched.image && formik.errors.image ? (
+              <div className="error">{formik.errors.image}</div>
+            ) : null}
 
             <button type="submit">Upload Profile image</button>
           </form>

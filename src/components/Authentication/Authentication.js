@@ -10,8 +10,8 @@ import { AiFillCloseCircle } from "react-icons/ai";
 import AuthenticationRegister from "./AuthenticationRegister";
 
 const formSchema = Yup.object({
-  email: Yup.string().required("the email is required"),
-  password: Yup.string().required("the password is required"),
+  email: Yup.string().required("email is required"),
+  password: Yup.string().required("password is required"),
 });
 
 const Authentication = () => {
@@ -26,7 +26,6 @@ const Authentication = () => {
       password: "",
     },
     onSubmit: (values) => {
-      console.log("clicked");
       dispatch(userLoginAction(values));
     },
     validationSchema: formSchema,
@@ -36,7 +35,9 @@ const Authentication = () => {
     setShowModel(false);
   };
 
-  const { userAuth, loading } = useSelector((state) => state?.user);
+  const { userAuth, loading, appErr, appErrRegister } = useSelector(
+    (state) => state?.user
+  );
 
   if (userAuth) {
     return <Navigate to="/home" />;
@@ -72,6 +73,17 @@ const Authentication = () => {
               <AiFillCloseCircle size={20} />
             </div>
             <h2>{login ? "Login In Your Account" : "Create Account"}</h2>
+
+            {login ? (
+              <>{appErr ? <div className="error">{appErr}</div> : null}</>
+            ) : (
+              <>
+                {appErrRegister ? (
+                  <div className="error">{appErrRegister}</div>
+                ) : null}
+              </>
+            )}
+
             {login ? (
               <form className="auth-form" onSubmit={formik.handleSubmit}>
                 <div className="auth-input">
@@ -85,6 +97,9 @@ const Authentication = () => {
                     id="email"
                     placeholder="Email"
                   />
+                  {formik.touched.email && formik.errors.email ? (
+                    <div className="error">{formik.errors.email}</div>
+                  ) : null}
                 </div>
                 <div className="auth-input">
                   <label htmlFor="Password">Password</label>
@@ -97,6 +112,9 @@ const Authentication = () => {
                     id="Password"
                     placeholder="Password"
                   />
+                  {formik.touched.password && formik.errors.password ? (
+                    <div className="error">{formik.errors.password}</div>
+                  ) : null}
                 </div>
                 {loading ? (
                   <button disabled className="submit-fbtn btn">

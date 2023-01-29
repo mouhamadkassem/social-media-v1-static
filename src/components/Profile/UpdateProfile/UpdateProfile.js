@@ -62,6 +62,9 @@ const UpdateProfile = ({ setUpdateProfile }) => {
             onBlur={formik.handleBlur("firstName")}
             placeholder="First Name"
           />
+          {formik.touched.firstName && formik.errors.firstName ? (
+            <div className="error">{formik.errors.firstName}</div>
+          ) : null}
         </div>
         <div className="update-pro-input">
           <label
@@ -78,6 +81,9 @@ const UpdateProfile = ({ setUpdateProfile }) => {
             onBlur={formik.handleBlur("lastName")}
             placeholder="Last Name"
           />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div className="error">{formik.errors.lastName}</div>
+          ) : null}
         </div>
 
         <div className="update-pro-input">
@@ -92,6 +98,9 @@ const UpdateProfile = ({ setUpdateProfile }) => {
             onBlur={formik.handleBlur("bio")}
             placeholder="bio..."
           />
+          {formik.touched.bio && formik.errors.bio ? (
+            <div className="error">{formik.errors.bio}</div>
+          ) : null}
         </div>
         <div className="btn-update-pro">
           <button type="submit">Update</button>

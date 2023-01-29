@@ -1,12 +1,15 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 import axios from "axios";
 import baseUrl from "../../../utlis/baseUrl";
+
+const isRegistered = createAction("registered");
 
 export const userRegisterAction = createAsyncThunk(
   "user/register",
   async (paylaod, { rejectWithValue, getState, dispatch }) => {
     try {
       const { data } = await axios.post(`${baseUrl}/users/register`, paylaod);
+      dispatch(isRegistered());
       return data;
     } catch (error) {
       if (!error.response) {
@@ -303,18 +306,23 @@ const userSlice = createSlice({
   extraReducers: (builder) => {
     builder.addCase(userRegisterAction.pending, (state, action) => {
       state.loading = true;
+      state.userRegister = undefined;
       state.appErr = undefined;
       state.serverErr = undefined;
     });
+    builder.addCase(isRegistered, (state, action) => {
+      state.isRegister = true;
+    });
     builder.addCase(userRegisterAction.fulfilled, (state, action) => {
       state.loading = false;
+      state.isRegister = false;
       state.userRegister = action.payload;
       state.appErr = undefined;
       state.serverErr = undefined;
     });
     builder.addCase(userRegisterAction.rejected, (state, action) => {
       state.loading = false;
-      state.appErr = action?.payload?.message;
+      state.appErrRegister = action?.payload?.message;
       state.serverErr = action?.error?.message;
     });
     builder.addCase(userLoginAction.pending, (state, action) => {

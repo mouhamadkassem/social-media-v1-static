@@ -14,14 +14,17 @@ import Loading from "../Loading/Loading";
 const Chat = () => {
   const [messages, setMessages] = useState([]);
   const [content, setContent] = useState("");
+  const [typing, setTyping] = useState(false);
+  const [userWrite, setUserWrite] = useState(0);
 
   const dispatch = useDispatch();
   const { id } = useParams();
+
   const userLogin = JSON.parse(localStorage.getItem("user-auth")).id;
 
   const { chat, loading } = useSelector((state) => state?.chat);
 
-  const { profileUser } = useSelector((state) => state.user);
+  const { profileUser, userLoginDetails } = useSelector((state) => state.user);
 
   useEffect(() => {
     dispatch(joinChatAction(id));
@@ -49,13 +52,19 @@ const Chat = () => {
   };
 
   useEffect(() => {
-    console.log(messages);
     socket.on("receive-message", (data) => {
       setMessages((message) => [...message, data]);
     });
   }, [socket]);
 
-  // {profileUser?.profilePhoto}
+  // const handleTyping = () => {
+  //   const lastDate = new Date().getTime();
+  // };
+
+  socket.on("typing", (data) => {
+    setTyping(data.isTyping);
+    setUserWrite(data?.userLogin);
+  });
 
   return (
     <>
@@ -69,6 +78,7 @@ const Chat = () => {
             <h2>
               {profileUser?.firstName} {profileUser?.lastName}
             </h2>
+            {typing && userWrite !== userLogin ? <div>Typing...</div> : null}
           </div>
         </div>
         {loading ? (
@@ -80,8 +90,9 @@ const Chat = () => {
           </div>
         ) : (
           <ScrollToBottom className="box-chat">
-            {messages?.map((message) => (
+            {messages?.map((message, index) => (
               <div
+                key={index}
                 className={
                   message?.sender === userLogin
                     ? "userAuthMessage msg"
@@ -102,8 +113,19 @@ const Chat = () => {
             type="text"
             placeholder="write message"
             value={content}
+            onFocus={() => {
+              socket.emit("isTyping", {
+                isTyping: true,
+                chatId: chat?._id,
+                userLogin,
+              });
+            }}
+            onBlur={() => {
+              socket.emit("isTyping", { isTyping: false, chatId: chat?._id });
+            }}
             onChange={(e) => {
               setContent(e.target.value);
+              // handleTyping();
             }}
           />
           <button onClick={handleSend}>send</button>

@@ -13,6 +13,7 @@ const formSchema = Yup.object({
 const UpdatePost = ({ setUpdatePost, postId }) => {
   const dispatch = useDispatch();
   const formik = useFormik({
+    enableReinitialize: true,
     initialValues: {
       description: "",
       image: "",
@@ -68,6 +69,9 @@ const UpdatePost = ({ setUpdatePost, postId }) => {
                 </div>
               )}
             </Dropzone>
+            {formik.touched.image && formik.errors.image ? (
+              <div className="error">{formik.errors.image}</div>
+            ) : null}
             <label
               style={{ marginTop: "10px", cursor: "pointer" }}
               htmlFor="description"
@@ -81,6 +85,9 @@ const UpdatePost = ({ setUpdatePost, postId }) => {
               onChange={formik.handleChange("description")}
               onBlur={formik.handleBlur("description")}
             />
+            {formik.touched.description && formik.errors.description ? (
+              <div className="error">{formik.errors.description}</div>
+            ) : null}
             <button type="submit">Update Post</button>
           </form>
         </div>

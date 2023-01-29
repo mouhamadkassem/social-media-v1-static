@@ -9,9 +9,9 @@ import { addProductAction } from "../../../redux/slices/Market/Market";
 import { AiFillCloseCircle } from "react-icons/ai";
 
 const formSchema = Yup.object({
-  title: Yup.string().required("the title is required"),
-  desc: Yup.string().required("the desc is required"),
-  price: Yup.string().required("the price is required"),
+  title: Yup.string().required("title is required"),
+  desc: Yup.string().required("desc is required"),
+  price: Yup.string().required("price is required"),
 });
 
 const category = [
@@ -30,6 +30,7 @@ const ProductForm = ({ setShowForm }) => {
   const [selectedCondition, setSelectedCondition] = useState({ value: "New" });
   const [selectedCategory, setSelectedCategory] = useState({ value: "Mix" });
   const [images, setImages] = useState([]);
+  const [imageRequired, setImageRequired] = useState(false);
 
   const dispatch = useDispatch();
   const formik = useFormik({
@@ -41,15 +42,20 @@ const ProductForm = ({ setShowForm }) => {
       phoneNum: "",
     },
     onSubmit: (values) => {
-      const data = {
-        ...values,
-        category: selectedCategory.value,
-        condition: selectedCondition.value,
-        images: images,
-      };
+      if (images.length === 0) {
+        setImageRequired(true);
+      } else {
+        const data = {
+          ...values,
+          category: selectedCategory.value,
+          condition: selectedCondition.value,
+          images: images,
+        };
 
-      dispatch(addProductAction(data));
-      setShowForm(false);
+        dispatch(addProductAction(data));
+        setShowForm(false);
+        setImageRequired(false);
+      }
     },
     validationSchema: formSchema,
   });
@@ -81,6 +87,9 @@ const ProductForm = ({ setShowForm }) => {
                 </div>
               )}
             </Dropzone>
+            {imageRequired ? (
+              <div className="error">iamges is required</div>
+            ) : null}
           </div>
 
           <div className="product-input">
@@ -92,6 +101,9 @@ const ProductForm = ({ setShowForm }) => {
               onChange={formik.handleChange("title")}
               onBlur={formik.handleBlur("title")}
             />
+            {formik.touched.title && formik.errors.title ? (
+              <div className="error">{formik.errors.title}</div>
+            ) : null}
           </div>
           <div className="product-input">
             <Select
@@ -110,6 +122,9 @@ const ProductForm = ({ setShowForm }) => {
               onChange={formik.handleChange("desc")}
               onBlur={formik.handleBlur("desc")}
             />
+            {formik.touched.desc && formik.errors.desc ? (
+              <div className="error">{formik.errors.desc}</div>
+            ) : null}
           </div>
           <div className="product-input">
             <label>Price</label>
@@ -121,6 +136,9 @@ const ProductForm = ({ setShowForm }) => {
               onChange={formik.handleChange("price")}
               onBlur={formik.handleBlur("price")}
             />
+            {formik.touched.price && formik.errors.price ? (
+              <div className="error">{formik.errors.price}</div>
+            ) : null}
           </div>
           <div className="product-input">
             <label>Phone Number</label>
