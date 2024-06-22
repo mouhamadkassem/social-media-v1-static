@@ -93,6 +93,7 @@ const Comments = () => {
             </button>
           )}
         </div>
+
         {loading && !postDetails ? (
           <LoadingComment />
         ) : (

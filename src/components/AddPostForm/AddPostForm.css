@@ -1,10 +1,6 @@
-:root {
-  --bg_color: rgb(250, 239, 250);
-  --darkviolet: rgb(125, 66, 125);
-}
-
 .AddPostForm {
-  background-color: #d3bae9;
+  background-color: var(--dark-bg-color);
+  color: var(--text-color);
   width: 30%;
   padding: 10px;
   position: fixed;
@@ -12,7 +8,6 @@
   left: 50%;
   transform: translate(-50%, -50%);
   text-decoration: none;
-  color: black !important;
   border-radius: 20px;
 }
 
@@ -23,7 +18,7 @@
 }
 
 .add-post-model p {
-  background-color: rgb(160, 201, 235);
+  background-color: var(--effect-color);
   margin: 0;
   padding: 10px;
   border-radius: 10px;
@@ -41,7 +36,11 @@
 .form-post button {
   border: none;
   border-radius: 20px;
-  background: linear-gradient(45deg, #f3d0f5, blue);
+  background: linear-gradient(
+    45deg,
+    var(--btn-left-color),
+    var(--btn-right-color)
+  );
   margin-top: 10px;
   padding: 10px;
   color: white;
@@ -50,18 +49,22 @@
 }
 
 .form-post button:hover {
-  background: linear-gradient(45deg, var(--bg_color), var(--violet));
+  background: linear-gradient(
+    45deg,
+    var(--btn-right-color),
+    var(--btn-left-color)
+  );
 }
 
 .close-form {
   position: absolute;
   right: 10px;
-  color: var(--darkviolet);
+  color: var(--hover-color);
   cursor: pointer;
 }
 
 .close-form:hover {
-  color: var(--violet);
+  color: var(--effect-color);
 }
 
 .form-post input {
@@ -69,7 +72,7 @@
   border-radius: 10px;
   outline: none;
   height: 50px;
-  background-color: var(--bg_color);
+  background-color: var(--input-color);
 }
 
 @media (max-width: 756px) {

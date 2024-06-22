@@ -1,8 +1,3 @@
-:root {
-  --bg_color: rgb(250, 239, 250);
-  --darkviolet: rgb(125, 66, 125);
-}
-
 .Comments {
   position: relative;
   top: 50px;
@@ -10,7 +5,7 @@
 }
 
 .comments-list {
-  background-color: var(--bg_color);
+  background-color: var(--bg-color);
   border-radius: 20px;
   display: flex;
   align-items: center;
@@ -24,7 +19,7 @@
   display: flex;
   align-items: center;
   margin: 10px 0;
-  border-bottom: 2px solid var(--darkviolet);
+  border-bottom: 2px solid var(--border-color);
   position: relative;
 }
 
@@ -32,7 +27,7 @@
   width: 100px;
   height: 100px;
   border-radius: 100%;
-  border: 4px solid violet;
+  border: 4px solid var(--border-color);
   margin-right: 50px;
 }
 
@@ -45,10 +40,11 @@
   top: 20px;
   right: 20px;
   display: flex;
-  color: var(--darkviolet);
+  color: var(--effect-color);
 }
 
 .comment-btn .edit-comment {
+  color: var(--effect-color);
   margin-right: 10px;
   cursor: pointer;
 }
@@ -61,38 +57,47 @@
   position: sticky;
   top: 50px;
   z-index: 10;
-  background-color: white;
+  background-color: var(--dark-bg-color);
   border-radius: 0 0 20px 20px;
 }
 
 .btn-addComment {
-  background-color: var(--darkviolet);
+  background: linear-gradient(
+    45deg,
+    var(--btn-left-color),
+    var(--btn-right-color)
+  );
   border: none;
-  color: white;
   font-weight: 400;
   padding: 10px 20px;
   border-radius: 10px;
 }
 
 .btn-addComment:hover {
-  background-color: violet;
+  background: linear-gradient(
+    45deg,
+    var(--btn-right-color),
+    var(--btn-left-color)
+  );
   cursor: pointer;
 }
 
 .addCommentInput {
   width: 80%;
   border: none;
-  border-bottom: 3px solid var(--darkviolet);
+  background-color: var(--bg-color);
+  border-bottom: 3px solid var(--border-color);
   outline: none;
   margin-right: 10px;
 }
 
 .delete-comment {
   cursor: pointer;
+  color: var(--effect-color);
 }
 .delete-comment:hover,
 .edit-comment:hover {
-  color: violet;
+  color: var(--hover-color);
 }
 
 .timeCreateAt {

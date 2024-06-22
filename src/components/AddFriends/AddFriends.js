@@ -31,7 +31,9 @@ const AddFriends = () => {
             type="text"
             placeholder="Find Friend..."
             value={userToSearch}
-            onChange={(e) => setUsertoSearch(e.target.value)}
+            onChange={(e) => {
+              setUsertoSearch(e.target.value);
+            }}
           />
           <label htmlFor="addFriend">
             <BiSearchAlt />

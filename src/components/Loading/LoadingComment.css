@@ -4,7 +4,7 @@
   width: 100%;
   height: 155px;
   border-radius: 20px;
-  background-color: var(--bg_color);
+  background-color: var(--bg-color);
 }
 
 .LoadingComment span {
@@ -13,7 +13,6 @@
   top: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.5;
-  color: var(--darkviolet);
   display: flex;
 }
 

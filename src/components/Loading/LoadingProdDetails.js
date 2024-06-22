@@ -8,32 +8,27 @@ const LoadingProdDetails = () => {
       <div className="load-imgs-product">
         <span>
           <span>
-            Loading...
             <Loading />
           </span>
         </span>
         <span>
           <span>
-            Loading...
             <Loading />
           </span>
         </span>
         <span>
           <span>
-            Loading...
             <Loading />
           </span>
         </span>
         <span>
           <span>
-            Loading...
             <Loading />
           </span>
         </span>
       </div>
       <div className="load-info-product">
         <span>
-          Loading...
           <Loading />
         </span>
       </div>

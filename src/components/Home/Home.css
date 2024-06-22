@@ -1,7 +1,7 @@
 .home-page {
   display: grid;
-  grid-template-columns: 20% 50% 25%;
-  gap: calc(5% / 2);
+  grid-template-columns: 20% 50% 28%;
+  gap: calc(2% / 2);
 }
 
 @media (max-width: 1200px) {

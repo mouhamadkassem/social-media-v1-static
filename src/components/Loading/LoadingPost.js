@@ -6,7 +6,6 @@ const LoadingPost = () => {
   return (
     <div className="LoadingPost">
       <span>
-        Loading...
         <Loading />
       </span>
     </div>

@@ -8,49 +8,41 @@ const LoadingMarket = () => {
       <div className="load-section">
         <div className="load">
           <span>
-            Loading...
             <Loading />
           </span>
         </div>
         <div className="load">
           <span>
-            Loading...
             <Loading />
           </span>
         </div>
         <div className="load">
           <span>
-            Loading...
             <Loading />
           </span>
         </div>
         <div className="load">
           <span>
-            Loading...
             <Loading />
           </span>
         </div>
         <div className="load">
           <span>
-            Loading...
             <Loading />
           </span>
         </div>
         <div className="load">
           <span>
-            Loading...
             <Loading />
           </span>
         </div>
         <div className="load">
           <span>
-            Loading...
             <Loading />
           </span>
         </div>
         <div className="load">
           <span>
-            Loading...
             <Loading />
           </span>
         </div>

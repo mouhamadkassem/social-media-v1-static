@@ -12,7 +12,7 @@
   position: relative;
   width: 45%;
   height: 45%;
-  background-color: #eee;
+  background-color: var(--bg-color);
 }
 
 .load-info-product span {
@@ -21,14 +21,13 @@
   left: 50%;
   transform: translate(-50%, -50%);
   opacity: 0.5;
-  color: var(--darkviolet);
   display: flex;
 }
 
 .load-imgs-product {
   width: 45%;
   height: 45%;
-  background-color: white !important;
+  background-color: var(--bg-color);
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -36,9 +35,8 @@
 }
 
 .load-imgs-product span {
-  width: 45% !important;
-  height: 45%;
-  background-color: var(--bg_color);
+  width: 50% !important;
+  background-color: var(--bg-color);
   position: relative;
 }
 
@@ -49,7 +47,6 @@
   transform: translate(-50%, -50%);
   display: flex;
   opacity: 0.5;
-  color: var(--darkviolet);
 }
 
 @media (max-width: 1200px) {

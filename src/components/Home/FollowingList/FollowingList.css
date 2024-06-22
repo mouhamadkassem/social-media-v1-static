@@ -1,14 +1,7 @@
-:root {
-  --bg_color: rgb(250, 239, 250);
-  --darkviolet: rgb(125, 66, 125);
-  --blueViolet: #d3bae9;
-  --violet: violet;
-}
-
 .FollowingList {
   position: sticky;
   top: 50px;
-  background-color: var(--bg_color);
+  background-color: var(--bg-color);
   height: calc(100vh - 50px);
   display: flex;
   flex-direction: column;
@@ -25,9 +18,9 @@
   align-items: center;
   justify-content: space-between;
   border: none;
-  border-bottom: 2px solid var(--blueViolet);
-  margin: 0 10px;
-  padding: 10px 20px;
+  border-bottom: 2px solid var(--border-color);
+  border-radius: 5px;
+  padding: 10px;
 }
 
 .friend {
@@ -51,11 +44,11 @@
   margin: 0 10px;
   font-size: 20px;
   text-decoration: none;
-  color: var(--darkviolet);
+  color: var(--effect-color);
 }
 
 .friend-link:hover {
-  color: var(--violet);
+  color: var(--hover-color);
 }
 
 .noFollowing {
@@ -87,8 +80,7 @@
 
 @media (max-width: 1200px) {
   .friends {
-    padding: 5px 10px;
-    margin: 0 5px;
+    padding: 10px;
   }
 
   .friend img {
@@ -97,7 +89,6 @@
   }
   .friend-link {
     font-size: 12px;
-    margin: 0 5px;
   }
 }
 

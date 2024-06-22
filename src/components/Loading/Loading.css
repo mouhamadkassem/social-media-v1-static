@@ -1,0 +1,245 @@
+.neon {
+  position: relative;
+  width: 100px;
+  height: 100px;
+}
+
+.small-square,
+.second-square,
+.second2-square,
+.violet-led,
+.aqua-led,
+.big-square {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) rotate(45deg);
+  border-radius: 10px;
+}
+
+.second-square,
+.second2-square,
+.small-square {
+  transform: translate(-50%, -50%) rotate(90deg);
+}
+
+.small-square {
+  width: calc(100% / 1.1);
+  height: calc(100% / 1.1);
+  z-index: 6;
+  background: linear-gradient(to right, black -5px, transparent 8px) 0 0,
+    linear-gradient(to left, black -5px, transparent 8px) 100% 100%,
+    linear-gradient(to bottom, black -5px, transparent 8px) 0 0,
+    linear-gradient(to top, black -5px, transparent 8px) 100% 100%;
+}
+
+.second-square {
+  width: calc(100% / 1.09);
+  height: calc(100% / 1.09);
+  background-color: rgb(29, 28, 110);
+  z-index: 10;
+}
+
+.second2-square {
+  width: calc(100% / 1.09);
+  height: calc(100% / 1.09);
+  background-color: rgb(23, 4, 105);
+  z-index: 4;
+}
+
+.violet-led {
+  width: 50px;
+  height: 50px;
+  z-index: 5;
+  box-shadow: 0px 0px 2px 1px violet;
+  background: linear-gradient(to right, violet 0px, transparent 2px) 0 0,
+    linear-gradient(to left, violet 0px, transparent 2px) 100% 100%,
+    linear-gradient(to bottom, violet 0px, transparent 2px) 0 0,
+    linear-gradient(to top, violet 0px, transparent 2px) 100% 100%;
+  background-repeat: no-repeat;
+  animation-name: spiner;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform: translate(-50%, -50%) rotate(60deg);
+}
+
+.aqua-led::before {
+  width: 1px;
+  height: 5px;
+  animation-duration: 10s;
+  transform: translate(-0.5px, 60px);
+  background-color: rgba(0, 255, 255, 0.719);
+  z-index: 101 !important;
+}
+.violet-led::after {
+  width: 1px;
+  height: 4px;
+  background-color: rgb(255, 24, 230);
+  animation-duration: 8s;
+  box-shadow: 0px 0px 2px 2px rgb(255, 24, 230);
+  transform: translate(110px, 50px);
+}
+
+.aqua-led {
+  width: 50px;
+  height: 50px;
+  box-shadow: 0px 0px 1px 1px rgb(27, 239, 248);
+  background: linear-gradient(to right, rgb(27, 239, 248) 0px, transparent 2px)
+      0 0,
+    linear-gradient(to left, rgb(27, 239, 248) 0px, transparent 2px) 100% 100%,
+    linear-gradient(to bottom, rgb(27, 239, 248) 0px, transparent 2px) 0 0,
+    linear-gradient(to top, rgb(27, 239, 248) 0px, transparent 2px) 100% 100%;
+  background-repeat: no-repeat;
+  animation-name: spiner2;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+  transform: translate(-50%, -50%) rotate(40deg);
+  z-index: 5;
+}
+
+.big-square {
+  width: calc(100% / 2.33);
+  height: calc(100% / 2.33);
+  z-index: 3;
+  box-shadow: 0px 0px 15px 5px rgb(29, 60, 110);
+  background: linear-gradient(to right, black -10px, transparent 5px) 0 0,
+    linear-gradient(to left, black -10px, transparent 5px) 100% 100%,
+    linear-gradient(to bottom, black -10px, transparent 5px) 0 0,
+    linear-gradient(to top, black -10px, rgb(23, 28, 105) 5px) 100% 100%;
+}
+
+.circle {
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background-color: transparent;
+  border: 0.5px solid aqua;
+  transform: translate(-20px, 50px);
+  animation-name: turn;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.circle1 {
+  width: 2.5px;
+  height: 2.5px;
+  transform: translate(-35px, 20px);
+  animation-name: turn;
+  animation-duration: 2s;
+}
+.circle2 {
+  transform: translate(40px, 40px);
+  animation-name: turn1;
+  animation-duration: 3s;
+}
+
+.circle2::after {
+  content: "";
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 1px 1px aqua;
+  animation-name: spiner3;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.sign {
+  width: 15px;
+  height: 15px;
+  transform: translate(-40px, 0px);
+  background: linear-gradient(to right, red 0.5px, transparent 1px) 100% 45%,
+    linear-gradient(to top, red 0.5px, transparent 1px) 50% 0%;
+  background-repeat: no-repeat;
+  background-size: 50% 50%;
+  z-index: 1000;
+  animation-name: turn;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: linear;
+}
+
+.sign1 {
+  transform: translate(10px, -50px);
+  animation-name: turn1;
+  animation-duration: 3s;
+}
+
+.sign2 {
+  transform: translate(-10px, 30px);
+  animation-name: turn1;
+  animation-duration: 2s;
+}
+
+.sign2::after,
+.sign1::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(0, -100%);
+  width: 1px;
+  height: 1px;
+  border-radius: 50%;
+  background-color: white;
+  box-shadow: 0 0 1px 1px red;
+}
+
+@keyframes spiner {
+  0% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+}
+@keyframes spiner2 {
+  0% {
+    transform: translate(-50%, -50%) rotate(360deg);
+  }
+  100% {
+    transform: translate(-50%, -50%) rotate(0deg);
+  }
+}
+
+@keyframes spiner3 {
+  0% {
+    transform: translate(0px, 0px) rotate(0deg);
+  }
+  25% {
+    transform: translate(4px, 0px) rotate(360deg);
+  }
+  50% {
+    transform: translate(4px, 4px) rotate(360deg);
+  }
+  75% {
+    transform: translate(0px, 4px) rotate(360deg);
+  }
+  100% {
+    transform: translate(0px, 0px) rotate(360deg);
+  }
+}
+
+@keyframes turn {
+  0% {
+    rotate: 0deg;
+  }
+  100% {
+    rotate: 360deg;
+  }
+}
+
+@keyframes turn1 {
+  0% {
+    rotate: 360deg;
+  }
+  100% {
+    rotate: 0deg;
+  }
+}

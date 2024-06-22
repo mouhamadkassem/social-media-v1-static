@@ -1,17 +1,11 @@
-:root {
-  --bg_color: rgb(250, 239, 250);
-  --darkviolet: rgb(125, 66, 125);
-}
-
 .UpdateProfile {
   width: 40%;
-  background-color: white;
+  background-color: var(--dark-bg-color);
   position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
   border-radius: 20px;
-  background-color: #d3bae9;
   padding: 2.5%;
 }
 
@@ -36,9 +30,9 @@
 .update-pro-input input {
   width: calc(100% - 20px);
   padding: 10px;
-  background-color: var(--bg_color);
+  background-color: var(--input-color);
   border: none;
-  border-bottom: 3px solid violet;
+  border-bottom: 3px solid var(--border-color);
   border-radius: 10px;
   outline: none;
 }
@@ -51,7 +45,11 @@
 }
 
 .btn-update-pro button {
-  background: linear-gradient(45deg, #f3d0f5, violet);
+  background: linear-gradient(
+    45deg,
+    var(--btn-left-color),
+    var(--btn-right-color)
+  );
   border: none;
   padding: 10px 20px;
   border-radius: 20px;
@@ -60,20 +58,23 @@
 }
 
 .btn-update-pro button:hover {
-  background: linear-gradient(45deg, violet, var(--darkviolet));
-  color: white;
+  background: linear-gradient(
+    45deg,
+    var(--btn-right-color),
+    var(--btn-left-color)
+  );
 }
 
 .to-close-form {
   position: absolute;
   right: 10px;
   top: 10px;
-  color: var(--darkviolet);
+  color: var(--effect-color);
   cursor: pointer;
 }
 
 .to-close-form:hover {
-  color: var(--violet);
+  color: var(--hover-color);
 }
 
 @media (max-width: 450px) {

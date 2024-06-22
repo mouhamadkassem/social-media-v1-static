@@ -1,6 +1,7 @@
 .ProductLists {
   position: absolute;
   padding-bottom: 50px;
+  background-color: var(--fore-color);
   top: 50px;
   left: 21%;
   width: 79%;
@@ -24,7 +25,6 @@
 
 .productLink {
   text-decoration: none;
-  color: var(--darkviolet);
   margin-right: 3.33%;
   margin-top: 2%;
 }
@@ -34,12 +34,12 @@
   height: 250px;
   margin-right: 5%;
   margin-top: 5%;
-  background-color: var(--bg_color);
+  background-color: var(--bg-color);
   position: relative;
   border-radius: 10px;
-  box-shadow: -8px 10px 22px -5px rgba(167, 167, 167, 0.75);
-  -webkit-box-shadow: -8px 10px 22px -5px rgba(167, 167, 167, 0.75);
-  -moz-box-shadow: -8px 10px 22px -5px rgba(167, 167, 167, 0.75);
+  box-shadow: -5px 8px 5px -5px var(--effect-color);
+  -webkit-box-shadow: -5px 8px 5px -5px var(--effect-color);
+  -moz-box-shadow: -5px 8px 5px -5px var(--effect-color);
 }
 
 .item img {

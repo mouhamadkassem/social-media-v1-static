@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./ProfileSide.css";
-import Profileimg from "../../../img/download.jfif";
+import Profileimg from "../../../assets/img/download.jfif";
 import { useDispatch, useSelector } from "react-redux";
 import { userdetailsAction } from "../../../redux/slices/User/User";
 import { fetchProductAction } from "../../../redux/slices/Market/Market";
@@ -30,15 +30,18 @@ const ProfileSide = () => {
           {userLoginDetails?.firstName} {userLoginDetails?.lastName}
         </h3>
       </div>
-      <hr />
+
       <div>
-        <button className="New-friend-btn">
-          <Link to="/auth" style={{ textDecoration: "none" }}>
+        <div className="New-friend">
+          <Link
+            to="/auth"
+            style={{ textDecoration: "none" }}
+            className="New-friend-btn"
+          >
             Add Friends
           </Link>
-        </button>
+        </div>
       </div>
-      <hr />
       <div className="friend-list">
         <div className="friend-home">
           <div>

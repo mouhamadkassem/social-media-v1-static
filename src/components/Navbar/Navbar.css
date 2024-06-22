@@ -1,15 +1,9 @@
-:root {
-  --darkviolet: rgb(125, 66, 125);
-  --bg_color: rgb(250, 239, 250);
-}
-
 .navbar {
   height: 50px;
   width: 100vw;
-  background: linear-gradient(45deg, #f3d0f5, #d3bae9);
+  background: linear-gradient(45deg, var(--bg-color), var(--dark-bg-color));
   display: flex;
   justify-content: space-between;
-  color: white;
   align-items: center;
   position: fixed;
   z-index: 1000;
@@ -22,12 +16,12 @@
 .options .option {
   margin: 0 15px;
   font-weight: bold;
-  color: white;
   cursor: pointer;
+  color: var(--effect-color);
 }
 
 .options .option:hover {
-  color: var(--darkviolet);
+  color: var(--hover-color);
 }
 
 .logo-icon {
@@ -45,20 +39,19 @@
   border-radius: 100%;
   object-fit: cover;
   cursor: pointer;
-  border: 2px solid var(--darkviolet);
+  border: 2px solid var(--border-color);
 }
 
 .icon-home {
-  color: white;
+  color: var(--effect-color);
 }
-
 .icon-home:hover {
-  color: var(--darkviolet);
+  color: var(--hover-color);
 }
 
 .imgProfile-setting {
   position: absolute;
-  background-color: var(--blueViolet);
+  background-color: var(--dark-bg-color);
   border-radius: 5px;
   padding: 10px;
   right: 20px;
@@ -81,24 +74,14 @@
 }
 
 .imgPro-option {
-  background: var(--bg_color);
+  background: var(--effect-color);
+  color: var(--text-color);
   text-decoration: none;
-  color: var(--darkviolet);
   border-radius: 5px;
   padding: 5%;
   margin-top: 10%;
 }
-.imgProfile-setting button {
-  text-align: center;
-  text-decoration: none;
-  cursor: pointer;
-  border-radius: 5px;
-  margin-top: 10px;
-  border: none;
-  background-color: var(--bg_color);
-  padding: 10px;
-}
 
-.imgProfile-setting div:hover {
-  background-color: #d3bae9;
+.imgPro-option:hover {
+  background-color: var(--hover-color);
 }

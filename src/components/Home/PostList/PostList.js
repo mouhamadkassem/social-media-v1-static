@@ -1,33 +1,80 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { FaCommentAlt } from "react-icons/fa";
 import "./PostList.css";
 import LoadingPost from "../../Loading/LoadingPost";
-
 import {
   fetchPostsAction,
   likesAction,
   dislikesAction,
   fetchPostDetailsAction,
 } from "../../../redux/slices/Post/Post";
-import { userdetailsAction } from "../../../redux/slices/User/User";
 import { Link } from "react-router-dom";
-import { fetchProductAction } from "../../../redux/slices/Market/Market";
-import LoadingComment from "../../Loading/LoadingComment";
-const PostList = () => {
-  const dispatch = useDispatch();
+import {
+  handleOppositeReview,
+  handleReview,
+  isUserExistInList,
+} from "./handleLikes";
 
+const PostList = () => {
   const { postList, serverErr, appErr, loading, postLike, newPost } =
     useSelector((state) => state?.post);
+  const [posts, setPosts] = useState([]);
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    if (Array.isArray(postList)) {
+      setPosts(postList);
+    }
+  }, [postList]);
 
   useEffect(() => {
     dispatch(fetchPostsAction());
-  }, [dispatch, postLike, newPost]);
+  }, [newPost]);
 
-  // useEffect(() => {
-  //   dispatch(fetchProductAction());
-  // }, [dispatch]);
+  const likePost = (index, id) => {
+    let updatedPost = posts;
+    const isUserLikedPost = isUserExistInList(posts[index]?.likes);
+
+    if (!isUserLikedPost) {
+      updatedPost = handleOppositeReview(
+        posts[index]?.disLikes,
+        updatedPost,
+        id,
+        true
+      );
+    } else {
+      updatedPost = handleReview(posts[index]?.likes, updatedPost, id, true);
+    }
+
+    if (updatedPost) setPosts(updatedPost);
+    dispatch(likesAction(id));
+  };
+
+  const disLikePost = (index, id) => {
+    let updatedPost = posts;
+    const isUserdisLikedPost = isUserExistInList(posts[index]?.disLikes);
+
+    if (!isUserdisLikedPost) {
+      updatedPost = handleOppositeReview(
+        posts[index]?.likes,
+        updatedPost,
+        id,
+        false
+      );
+    } else {
+      updatedPost = handleReview(
+        posts[index]?.disLikes,
+        updatedPost,
+        id,
+        false
+      );
+    }
+
+    if (updatedPost) setPosts(updatedPost);
+    dispatch(dislikesAction(id));
+  };
 
   return (
     <div className="PostList">
@@ -35,27 +82,25 @@ const PostList = () => {
         <LoadingPost />
       ) : (
         <>
-          {postList?.map((post) => (
+          {posts?.map((post, index) => (
             <div className="post" key={post?._id}>
-              <div className="postUser">
-                <Link
-                  to={`/profile/${post?.user?._id}`}
-                  // onClick={() => {
-                  //   dispatch(userdetailsAction(post?.user?._id));
-                  // }}
-                >
-                  <img src={post?.user?.profilePhoto} alt="" />
-                </Link>
-                <div>
-                  <h3>
-                    {post?.user?.firstName} {post?.user?.lastName}
-                  </h3>
-                  <p>{post?.createAt}</p>
+              <div className="userDetailsPost">
+                <div className="postUser">
+                  <Link to={`/profile/${post?.user?._id}`}>
+                    <img src={post?.user?.profilePhoto} alt="" />
+                  </Link>
+                  <div>
+                    <h3>
+                      {post?.user?.firstName} {post?.user?.lastName}
+                    </h3>
+                    <p>{post?.createAt}</p>
+                  </div>
+                </div>
+                <div className="post-description">
+                  <p>{post?.description}</p>
                 </div>
               </div>
-              <div className="post-description">
-                <p>{post?.description}</p>
-              </div>
+
               <div className="postImg">
                 <img src={post?.image} alt="" />
               </div>
@@ -64,7 +109,7 @@ const PostList = () => {
                   {post?.likes?.length}{" "}
                   <AiFillLike
                     onClick={() => {
-                      dispatch(likesAction(post?._id));
+                      likePost(index, post?._id);
                     }}
                   />
                 </div>
@@ -72,7 +117,7 @@ const PostList = () => {
                   {post?.disLikes?.length}{" "}
                   <AiFillDislike
                     onClick={() => {
-                      dispatch(dislikesAction(post?._id));
+                      disLikePost(index, post?._id);
                     }}
                   />
                 </div>

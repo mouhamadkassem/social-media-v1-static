@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import authImage from "../../img/auth.jpg";
 import "./Authentication.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -45,7 +44,6 @@ const Authentication = () => {
 
   return (
     <div className="AuthPage">
-      <img src={authImage} alt="enjoy" />
       <div className="btn-auth">
         <button
           className="login-btn btn"

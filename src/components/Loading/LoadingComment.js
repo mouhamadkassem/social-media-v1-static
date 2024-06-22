@@ -6,7 +6,6 @@ const LoadingComment = () => {
   return (
     <div className="LoadingComment">
       <span>
-        Loading...
         <Loading />
       </span>
     </div>
