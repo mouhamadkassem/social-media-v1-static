@@ -1,0 +1,59 @@
+.btn {
+  border: none;
+  background: linear-gradient(
+    45deg,
+    var(--btn-left-color),
+    var(--btn-right-color)
+  );
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  margin: 5px;
+  border-radius: 10px 20px 10px 0;
+  color: white;
+  cursor: pointer;
+  transition: 0.5s;
+}
+.btn:hover {
+  background: linear-gradient(
+    45deg,
+    var(--btn-right-color),
+    var(--btn-left-color)
+  );
+  transition: 0.5s;
+  border-radius: 10px 0 10px 0;
+}
+
+.loadingBtn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(45deg, var(--bg-color), var(--dark-bg-color));
+  color: white;
+  /* overflow: hidden; */
+  border: none;
+  cursor: not-allowed;
+  padding: 10px 20px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 10px 20px 10px 0;
+  margin: 5px;
+}
+
+@media (max-width: 1200px) {
+  .btn {
+    padding: 7.5px 15px;
+  }
+}
+@media (max-width: 800px) {
+  .btn {
+    padding: 5px 10px;
+    font-size: 15px;
+  }
+}
+@media (max-width: 550px) {
+  .btn {
+    padding: 3px 6px;
+    font-size: 12px;
+  }
+}

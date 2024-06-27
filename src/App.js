@@ -1,14 +1,14 @@
 import "./App.css";
 import { HashRouter, Routes, Route } from "react-router-dom";
-import Home from "./components/Home/Home";
-import MarketPage from "./components/Market/MarketPage";
-import AddFriends from "./components/AddFriends/AddFriends";
-import ProfilePage from "./components/Profile/ProfilePage";
-import Authentication from "./components/Authentication/Authentication";
-import Comments from "./components/Comments/CommentsList";
-import PostDetails from "./components/Profile/PostDetails/PostDetails";
-import Chat from "./components/Chat/Chat";
-import ProductDetails from "./components/Market/productDetails/ProductDetails";
+import Home from "./pages/Home/Home";
+import MarketPage from "./pages/Market/MarketPage";
+import AddFriends from "./pages/AddFriends/AddFriends";
+import ProfilePage from "./pages/Profile/ProfilePage";
+import Authentication from "./pages/Authentication/Authentication";
+import Comments from "./pages/Comments/CommentsList";
+import PostDetails from "./pages/Profile/PostDetails/PostDetails";
+import Chat from "./pages/Chat/Chat";
+import ProductDetails from "./pages/Market/productDetails/ProductDetails";
 import ProtectRoute from "./components/protectRoute/protectRoute";
 
 function App() {

@@ -5,12 +5,12 @@ import Loading from "./Loading";
 const LoadingProfile = () => {
   return (
     <div className="LoadingProfile">
-      <div className="l1">
+      <div className="l1 l">
         <span>
           <Loading />
         </span>
       </div>
-      <div className="l2">
+      <div className="l2 l">
         <span>
           <Loading />
         </span>

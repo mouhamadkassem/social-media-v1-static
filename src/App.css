@@ -13,11 +13,13 @@
   --input-color: #1e8eab;
   --chat-color: #d22f2a;
 }
+#root {
+  background-color: var(--fore-color);
+}
 
 .App {
+  min-height: 100vh;
   color: var(--text-color);
-  background-color: var(--fore-color);
-  height: 100vh;
   margin: 0;
   font-family: "Montserrat", sans-serif;
   font-family: "Ubuntu", sans-serif;

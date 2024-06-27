@@ -6,7 +6,7 @@ import { AiTwotoneHome, AiOutlineUsergroupAdd } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
 import { RiImageAddFill } from "react-icons/ri";
-import AddPostForm from "../AddPostForm/AddPostForm";
+import AddPostForm from "../../pages/AddPostForm/AddPostForm";
 import {
   fetchProfileDetailsCtrl,
   userdetailsAction,

@@ -1,0 +1,98 @@
+::placeholder {
+  opacity: 0.7;
+}
+
+.AddFriends {
+  position: relative;
+  top: 50px;
+  margin: 0 250px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.toSearch {
+  width: 75%;
+  background-color: var(--bg-color);
+  padding: 10px;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.toSearch input {
+  width: 95%;
+  border: none;
+  background-color: var(--bg-color);
+  outline: none;
+}
+
+.toSearch svg {
+  cursor: pointer;
+}
+
+.Add-Friend {
+  background-color: var(--bg-color);
+  width: 90%;
+  height: 150px;
+  border-radius: 20px;
+  margin: 10px 0;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.add-info-sec {
+  display: flex;
+  align-items: center;
+}
+
+.add-info-sec img {
+  width: 100px;
+  height: 100px;
+  border-radius: 100%;
+  border: 4px solid var(--border-color);
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.Add-Friend .message-btn {
+  margin: 0 !important;
+}
+
+@media (max-width: 1200px) {
+  .AddFriends {
+    margin: 0 10px;
+  }
+  .Add-Friend {
+    height: 100px;
+  }
+  .add-info-sec img {
+    width: 75px;
+    height: 75px;
+  }
+}
+@media (max-width: 756px) {
+  .AddFriends {
+    margin: 0 10px;
+  }
+  .AddFriends h3 {
+    font-size: 10px;
+  }
+  .Add-Friend {
+    height: 75px;
+  }
+  .add-info-sec img {
+    width: 50px;
+    height: 50px;
+    margin-left: 5px;
+    margin-right: 5px;
+  }
+  /* .pro-btn button {
+    padding: 5px 10px !important;
+    font-size: 10px !important;
+    margin-left: 5px;
+  } */
+}

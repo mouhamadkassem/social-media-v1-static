@@ -5,7 +5,7 @@ import Loading from "./Loading";
 const LoadingProdDetails = () => {
   return (
     <div className="LoadingProdDetails">
-      <div className="load-imgs-product">
+      <div className="load-imgs-product loadProdDetail">
         <span>
           <span>
             <Loading />
@@ -27,7 +27,7 @@ const LoadingProdDetails = () => {
           </span>
         </span>
       </div>
-      <div className="load-info-product">
+      <div className="load-info-product loadProdDetail">
         <span>
           <Loading />
         </span>
