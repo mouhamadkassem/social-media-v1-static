@@ -63,8 +63,3 @@
     width: 90%;
   }
 }
-@media (max-width: 756px) {
-  .load-imgs-product span span {
-    font-size: 10px;
-  }
-}

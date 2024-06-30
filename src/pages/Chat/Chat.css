@@ -53,7 +53,6 @@
   position: absolute;
   bottom: -10px;
   right: 10px;
-  font-size: 10px;
 }
 
 .userAuthMessage {
@@ -74,6 +73,7 @@
   background: linear-gradient(45deg, var(--fore-color), var(--chat-color));
   display: flex;
   justify-content: center;
+  align-items: center;
   padding: 10px 0;
   width: 100%;
   margin-bottom: 20px;

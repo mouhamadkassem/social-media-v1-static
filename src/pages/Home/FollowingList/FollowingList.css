@@ -48,7 +48,6 @@
 
 .friend-link {
   margin: 0 10px;
-  font-size: 20px;
   text-decoration: none;
   color: var(--effect-color);
 }
@@ -63,7 +62,6 @@
   justify-content: center;
   flex-direction: column;
   height: 100%;
-  font-size: 20px;
 }
 
 .noFollowing p {
@@ -75,12 +73,10 @@
 .toFollow {
   color: var(--darkviolet);
   font-weight: bold;
-  font-size: 22px;
   transition: 0.3s;
 }
 .toFollow:hover {
   color: var(--violet);
-  font-size: 25px;
   transition: 0.3s;
 }
 
@@ -92,9 +88,6 @@
   .friend img {
     width: 25px;
     height: 25px;
-  }
-  .friend-link {
-    font-size: 12px;
   }
 }
 

@@ -85,7 +85,6 @@ const Chat = () => {
         {loading ? (
           <div className="LoadingChat">
             <span>
-              Loading...
               <Loading />
             </span>
           </div>

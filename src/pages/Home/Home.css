@@ -8,15 +8,12 @@
   .home-page {
     display: grid;
     grid-template-columns: 70% 29%;
-
     gap: 1%;
-    font-size: 12px;
   }
 }
 @media (max-width: 756px) {
   .home-page {
     display: grid;
     grid-template-columns: 100%;
-    font-size: 10px;
   }
 }

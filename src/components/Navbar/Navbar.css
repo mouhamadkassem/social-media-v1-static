@@ -86,3 +86,12 @@
   background-color: var(--hover-color);
   color: var(--bg-color);
 }
+
+@media (max-width: 500px) {
+  .nav-profile {
+    padding-right: 10px;
+  }
+  .logo-icon {
+    padding-left: 10px;
+  }
+}
