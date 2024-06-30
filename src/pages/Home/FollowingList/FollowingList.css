@@ -13,6 +13,12 @@
   left: calc(12.5% - 10px);
 }
 
+.SearchLabel {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
 .friends {
   display: flex;
   align-items: center;

@@ -5,6 +5,8 @@ import * as Yup from "yup";
 import Dropzone from "react-dropzone";
 import { UploadProfileImgAction } from "../../../../redux/slices/User/User";
 import { AiFillCloseCircle } from "react-icons/ai";
+import Form from "../../../../components/Form/Form";
+import Button from "../../../../components/Button/Button";
 
 const formSchema = Yup.object({
   image: Yup.string().required("the image is required"),
@@ -26,16 +28,13 @@ const UploadProfileImg = ({ setUploadProImg }) => {
     <div>
       <div className="AddPostForm">
         <div className="add-post-model">
-          <div
-            className="close-form"
+          <Form
+            title="Upload Profile Image"
+            onSubmit={formik.handleSubmit}
             onClick={() => {
               setUploadProImg(false);
             }}
           >
-            <AiFillCloseCircle size={20} />
-          </div>
-          <h2>Upload Profile image</h2>
-          <form className="form-post" onSubmit={formik.handleSubmit}>
             <Dropzone
               onDrop={(acceptedFiles) =>
                 formik.setFieldValue("image", acceptedFiles[0])
@@ -52,12 +51,7 @@ const UploadProfileImg = ({ setUploadProImg }) => {
                     })}
                   >
                     <input {...getInputProps()} />
-                    <p
-                      className="cursor-pointer bg-blue-100 mt-2 text-center py-4"
-                      style={{ borderRadius: "10px" }}
-                    >
-                      + Add the image here
-                    </p>
+                    <p className="dropzoneInput">+ Add the image here</p>
                   </div>
                 </div>
               )}
@@ -66,8 +60,8 @@ const UploadProfileImg = ({ setUploadProImg }) => {
               <div className="error">{formik.errors.image}</div>
             ) : null}
 
-            <button type="submit">Upload Profile image</button>
-          </form>
+            <Button text="Upload Profile Image" type="submit" />
+          </Form>
         </div>
       </div>
     </div>

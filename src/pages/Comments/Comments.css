@@ -64,29 +64,7 @@
   overflow: hidden;
 }
 
-/* .btn-addComment {
-  background: linear-gradient(
-    45deg,
-    var(--btn-left-color),
-    var(--btn-right-color)
-  );
-  width: 20%;
-  border: none;
-  padding: 10px 20px; 
-  border-radius: 10px;
-} */
-
-/* .btn-addComment:hover {
-  background: linear-gradient(
-    45deg,
-    var(--btn-right-color),
-    var(--btn-left-color)
-  );
-  cursor: pointer;
-} */
-
 .addCommentInput {
-  /* width: calc(80% - 10px); */
   width: 100%;
   border: none;
   background-color: var(--bg-color);

@@ -32,25 +32,6 @@
   border-top: 2px solid var(--border-color);
   border-radius: 5px;
 }
-.New-friend-btn {
-  padding: 20px;
-  border: none;
-  background: linear-gradient(
-    45deg,
-    var(--btn-left-color),
-    var(--btn-right-color)
-  );
-  border-radius: 20px;
-  cursor: pointer;
-}
-
-.New-friend-btn:hover {
-  background: linear-gradient(
-    45deg,
-    var(--btn-right-color),
-    var(--btn-left-color)
-  );
-}
 
 .friend-home {
   display: flex;

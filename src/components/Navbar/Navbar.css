@@ -11,6 +11,7 @@
 
 .options {
   display: flex;
+  position: relative;
 }
 
 .options .option {
@@ -50,12 +51,17 @@
 }
 
 .imgProfile-setting {
-  position: absolute;
+  width: 120px;
   background-color: var(--dark-bg-color);
-  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+  border-radius: 0 0 10px 10px;
+  position: absolute;
   padding: 10px;
   right: 20px;
-  width: 100px;
 }
 
 .imgProfile-setting div {
@@ -65,23 +71,18 @@
   border-radius: 2px;
 }
 
-.imgProfile-setting {
-  text-align: center;
-  text-decoration: none;
-  border-radius: 2px;
-  display: flex;
-  flex-direction: column;
-}
-
 .imgPro-option {
-  background: var(--effect-color);
+  width: 100px;
+  background: var(--bg-color);
   color: var(--text-color);
   text-decoration: none;
   border-radius: 5px;
   padding: 5%;
+  text-align: center;
   margin-top: 10%;
 }
 
 .imgPro-option:hover {
   background-color: var(--hover-color);
+  color: var(--bg-color);
 }

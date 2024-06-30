@@ -1,12 +1,13 @@
 .ProductDetails {
   position: absolute;
   width: 100vw;
-  background-color: var(--fore-color);
-  padding-bottom: 50px;
+
+  background: linear-gradient(45deg, var(--fore-color), var(--bg-color));
   top: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
+  margin: 20px 0;
 }
 
 .imgs {
@@ -20,38 +21,25 @@
   width: 45%;
   height: 30%;
   object-fit: fill;
-  margin-top: 5%;
 }
 
-/* .imgs {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, 49%);
-  gap: 1%;
-  justify-content: center;
-  align-content: center;
+.productDetailsTitle {
+  color: var(--bg-color);
 }
-
-.product-img-details {
-  width: 100%;
-} */
 
 .info-details {
   display: flex;
   flex-direction: column;
   align-items: center;
-  background-color: var(--bg-color);
   padding: 10px;
   border-radius: 5px;
-  width: 80%;
 }
 
 .img-side {
-  width: 80%;
   padding: 10px;
   text-align: center;
-  background-color: var(--bg-color);
+  width: 40%;
   border-radius: 5px;
-  margin: 20px 0;
 }
 
 .info {
@@ -87,48 +75,6 @@
 .user-info h3 {
   margin: 0 20px;
 }
-
-/* .product-message {
-  border-radius: 20px 20px 20px 0;
-  border: none;
-  padding: 10px 15px;
-  margin-left: 30px;
-  cursor: pointer;
-  background: linear-gradient(
-    45deg,
-    var(--btn-left-color),
-    var(--btn-right-color)
-  );
-  font-weight: 400;
-}
-.product-message:hover {
-  background: linear-gradient(
-    45deg,
-    var(--btn-right-color),
-    var(--btn-left-color)
-  );
-} */
-
-/* .btn-addRating {
-  border-radius: 10px;
-  border: none;
-  padding: 10px 15px;
-  margin-top: 10px;
-  cursor: pointer;
-  background: linear-gradient(
-    45deg,
-    var(--btn-left-color),
-    var(--btn-right-color)
-  );
-  font-weight: 400;
-} */
-/* .btn-addRating:hover {
-  background: linear-gradient(
-    45deg,
-    var(--btn-right-color),
-    var(--btn-left-color)
-  );
-} */
 
 .rating-info {
   display: flex;
@@ -203,8 +149,10 @@ input[type="range"]::-webkit-slider-runnable-track {
 
 @media (max-width: 1000px) {
   .ProductDetails {
-    width: auto;
     flex-direction: column;
+    background: linear-gradient(-180deg, var(--fore-color), var(--bg-color));
+    min-height: calc(100vh - 80px);
+    padding-bottom: 10px;
   }
   .info-details,
   .img-side {

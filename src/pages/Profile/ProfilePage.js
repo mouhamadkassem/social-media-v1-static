@@ -98,6 +98,78 @@ const ProfilePage = () => {
                   </div>
                 ) : null}
               </div>
+              <div className="pro-btn-info">
+                <div className="user-interaction">
+                  <span>
+                    <h3>followers</h3>
+                    <h3>{profileUser?.followers?.length}</h3>
+                  </span>
+                  <span>
+                    <h3>following</h3>
+                    <h3>{profileUser?.following?.length}</h3>
+                  </span>
+                  <span>
+                    <h3>posts</h3>
+                    <h3>{profileUser?.posts?.length}</h3>
+                  </span>
+                </div>
+                <div className="pro-btn">
+                  {isUserAuth ? null : (
+                    <>
+                      {!isFollow ? (
+                        <Button
+                          classname="follow-btn"
+                          text="Follow"
+                          onClick={() => {
+                            dispatch(followUserAction(profileUser?._id));
+                            dispatch(unBlockUserAction(profileUser?._id));
+                          }}
+                        />
+                      ) : (
+                        <Button
+                          text="Unfollow"
+                          classname="unfollow-btn"
+                          onClick={() => {
+                            dispatch(unFollowUserAction(profileUser?._id));
+                          }}
+                        />
+                      )}
+                      <Link to={`/chat/${profileUser?._id}`}>
+                        <Button classname="message-btn" text="Message" />
+                      </Link>
+                      {!isBlock ? (
+                        <Button
+                          text="Block"
+                          classname="block-btn"
+                          onClick={() => {
+                            dispatch(blockUserAction(profileUser?._id));
+                            dispatch(unFollowUserAction(profileUser?._id));
+                          }}
+                        />
+                      ) : (
+                        <Button
+                          text="UnBlock"
+                          classname="block-btn"
+                          onClick={() => {
+                            dispatch(unBlockUserAction(profileUser?._id));
+                          }}
+                        />
+                      )}
+                    </>
+                  )}
+                  {isUserAuth ? (
+                    <p className="update-profile-btn">
+                      <TbEdit
+                        onClick={() => {
+                          setUpdateProfile(true);
+                        }}
+                      />
+                    </p>
+                  ) : null}
+                </div>
+              </div>
+            </div>
+            <div className="pro-right-section">
               <div className="pro-info">
                 <h3>
                   {profileUser?.firstName} {profileUser?.lastName}
@@ -106,77 +178,6 @@ const ProfilePage = () => {
                   {dateFormat(profileUser?.createdAt, "d / m / yyyy")}
                 </p>
                 <p className="bio">bio : {profileUser?.bio}</p>
-              </div>
-            </div>
-            <div className="pro-right-section">
-              <div className="pro-btn">
-                {isUserAuth ? null : (
-                  <>
-                    {!isFollow ? (
-                      <Button
-                        classname="follow-btn"
-                        text="Follow"
-                        onClick={() => {
-                          dispatch(followUserAction(profileUser?._id));
-                          dispatch(unBlockUserAction(profileUser?._id));
-                        }}
-                      />
-                    ) : (
-                      <Button
-                        text="Unfollow"
-                        classname="unfollow-btn"
-                        onClick={() => {
-                          dispatch(unFollowUserAction(profileUser?._id));
-                        }}
-                      />
-                    )}
-                    <Link to={`/chat/${profileUser?._id}`}>
-                      <Button classname="message-btn" text="Message" />
-                    </Link>
-                    {!isBlock ? (
-                      <Button
-                        text="Block"
-                        classname="block-btn"
-                        onClick={() => {
-                          dispatch(blockUserAction(profileUser?._id));
-                          dispatch(unFollowUserAction(profileUser?._id));
-                        }}
-                      />
-                    ) : (
-                      <Button
-                        text="UnBlock"
-                        classname="block-btn"
-                        onClick={() => {
-                          dispatch(unBlockUserAction(profileUser?._id));
-                        }}
-                      />
-                    )}
-                  </>
-                )}
-                {isUserAuth ? (
-                  <p className="update-profile-btn">
-                    <TbEdit
-                      size={30}
-                      onClick={() => {
-                        setUpdateProfile(true);
-                      }}
-                    />
-                  </p>
-                ) : null}
-              </div>
-              <div className="user-interaction">
-                <span>
-                  <h3>followers</h3>
-                  <h3>{profileUser?.followers?.length}</h3>
-                </span>
-                <span>
-                  <h3>following</h3>
-                  <h3>{profileUser?.following?.length}</h3>
-                </span>
-                <span>
-                  <h3>posts</h3>
-                  <h3>{profileUser?.posts?.length}</h3>
-                </span>
               </div>
             </div>
           </div>

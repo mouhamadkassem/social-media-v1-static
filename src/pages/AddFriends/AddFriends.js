@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import Navbar from "../../components/Navbar/Navbar";
 import { BiSearchAlt } from "react-icons/bi";
 import { fetchAllUsersAction } from "../../redux/slices/User/User";
+import Button from "../../components/Button/Button";
 
 const AddFriends = () => {
   const [userToSearch, setUsertoSearch] = useState("");
@@ -35,7 +36,7 @@ const AddFriends = () => {
               setUsertoSearch(e.target.value);
             }}
           />
-          <label htmlFor="addFriend">
+          <label className="SearchLabel" htmlFor="addFriend">
             <BiSearchAlt />
           </label>
         </div>
@@ -68,7 +69,7 @@ const AddFriends = () => {
                     </div>
                     <div className="pro-btn">
                       <Link to={`/profile/${user?._id}`}>
-                        <button className="message-btn">Profile</button>
+                        <Button text="Profile" className="message-btn" />
                       </Link>
                     </div>
                   </div>

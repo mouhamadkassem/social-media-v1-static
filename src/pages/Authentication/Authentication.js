@@ -5,9 +5,10 @@ import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { userLoginAction } from "../../redux/slices/User/User";
 import { Navigate } from "react-router-dom";
-import { AiFillCloseCircle } from "react-icons/ai";
 import AuthenticationRegister from "./AuthenticationRegister";
 import Button from "../../components/Button/Button";
+import Form from "../../components/Form/Form";
+import Input from "../../components/Input/Input";
 
 const formSchema = Yup.object({
   email: Yup.string().required("email is required"),
@@ -63,70 +64,66 @@ const Authentication = () => {
         />
       </div>
       {showModel && (
-        <div className="form">
-          <div className="handle-form">
-            <div className="showModel" onClick={handleModel}>
-              <AiFillCloseCircle size={20} />
-            </div>
-            <h2>{login ? "Login In Your Account" : "Create Account"}</h2>
+        <>
+          {login ? (
+            <>{appErr ? <div className="error">{appErr}</div> : null}</>
+          ) : (
+            <></>
+          )}
 
-            {login ? (
-              <>{appErr ? <div className="error">{appErr}</div> : null}</>
-            ) : (
-              <>
-                {appErrRegister ? (
-                  <div className="error">{appErrRegister}</div>
-                ) : null}
-              </>
-            )}
-
-            {login ? (
-              <form className="auth-form" onSubmit={formik.handleSubmit}>
-                <div className="auth-input">
-                  <label htmlFor="email">Email</label>
-                  <input
-                    value={formik.values.email}
-                    onChange={formik.handleChange("email")}
-                    onBlur={formik.handleBlur("email")}
-                    type="email"
-                    name="email"
-                    id="email"
-                    placeholder="Email"
-                  />
-                  {formik.touched.email && formik.errors.email ? (
-                    <div className="error">{formik.errors.email}</div>
-                  ) : null}
-                </div>
-                <div className="auth-input">
-                  <label htmlFor="Password">Password</label>
-                  <input
-                    value={formik.values.password}
-                    onChange={formik.handleChange("password")}
-                    onBlur={formik.handleBlur("password")}
-                    type="Password"
-                    name="Password"
-                    id="Password"
-                    placeholder="Password"
-                  />
-                  {formik.touched.password && formik.errors.password ? (
-                    <div className="error">{formik.errors.password}</div>
-                  ) : null}
-                </div>
-                {loading ? (
-                  <Button loading />
-                ) : (
-                  <Button type="submit" text="Login" />
-                )}
-              </form>
-            ) : (
-              <AuthenticationRegister
-                setLogin={setLogin}
-                showModel={showModel}
-                setShowModel={setShowModel}
+          {login ? (
+            // <form className="auth-form">
+            <Form
+              onClick={handleModel}
+              title="Login In Your Account"
+              onSubmit={formik.handleSubmit}
+            >
+              <Input
+                type="email"
+                name="email"
+                id="email"
+                placeholder="Email"
+                label="Email"
+                fullWidth
+                value={formik.values.email}
+                onChange={formik.handleChange("email")}
+                onBlur={formik.handleBlur("email")}
+                error={
+                  formik.errors.email && formik.touched.email
+                    ? formik.errors?.email
+                    : null
+                }
               />
-            )}
-          </div>
-        </div>
+              <Input
+                type="password"
+                name="password"
+                id="password"
+                placeholder="Password"
+                label="Password"
+                fullWidth
+                value={formik.values.password}
+                onChange={formik.handleChange("password")}
+                onBlur={formik.handleBlur("password")}
+                error={
+                  formik.errors.password && formik.touched.password
+                    ? formik.errors?.password
+                    : null
+                }
+              />
+              {loading ? (
+                <Button loading />
+              ) : (
+                <Button type="submit" text="Login" />
+              )}
+            </Form>
+          ) : (
+            <AuthenticationRegister
+              setLogin={setLogin}
+              showModel={showModel}
+              setShowModel={setShowModel}
+            />
+          )}
+        </>
       )}
     </div>
   );

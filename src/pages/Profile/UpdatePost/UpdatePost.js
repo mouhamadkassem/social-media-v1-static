@@ -4,6 +4,9 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Dropzone from "react-dropzone";
 import { UpdatePostAction } from "../../../redux/slices/Post/Post";
+import Form from "../../../components/Form/Form";
+import Button from "../../../components/Button/Button";
+import Input from "../../../components/Input/Input";
 
 const formSchema = Yup.object({
   description: Yup.string().required("the description is required"),
@@ -32,65 +35,56 @@ const UpdatePost = ({ setUpdatePost, postId }) => {
   return (
     <div>
       <div className="AddPostForm">
-        <div className="add-post-model">
-          <div
-            className="close-form"
-            onClick={() => {
-              setUpdatePost(false);
-            }}
+        <Form
+          title="Update Post"
+          onSubmit={formik.handleSubmit}
+          onClick={() => {
+            setUpdatePost(false);
+          }}
+        >
+          <Dropzone
+            onDrop={(acceptedFiles) =>
+              formik.setFieldValue("image", acceptedFiles[0])
+            }
+            accept="image/png image/jpeg"
+            onBlur={formik.handleBlur("image")}
           >
-            x
-          </div>
-          <h2>Update Post</h2>
-          <form className="form-post" onSubmit={formik.handleSubmit}>
-            <Dropzone
-              onDrop={(acceptedFiles) =>
-                formik.setFieldValue("image", acceptedFiles[0])
-              }
-              accept="image/png image/jpeg"
-              onBlur={formik.handleBlur("image")}
-            >
-              {({ getRootProps, getInputProps }) => (
-                <div className="container">
-                  <div
-                    {...getRootProps({
-                      className: "dropzone",
-                      onDrop: (event) => event.stopPropagation(),
-                    })}
-                  >
-                    <input {...getInputProps()} />
-                    <p
-                      className="cursor-pointer bg-blue-100 mt-2 text-center py-4"
-                      style={{ borderRadius: "10px" }}
-                    >
-                      + Add the image here
-                    </p>
-                  </div>
+            {({ getRootProps, getInputProps }) => (
+              <div className="container">
+                <div
+                  {...getRootProps({
+                    className: "dropzone",
+                    onDrop: (event) => event.stopPropagation(),
+                  })}
+                >
+                  <input {...getInputProps()} />
+                  <p className="dropzoneInput">+ Add the image here</p>
                 </div>
-              )}
-            </Dropzone>
-            {formik.touched.image && formik.errors.image ? (
-              <div className="error">{formik.errors.image}</div>
-            ) : null}
-            <label
-              style={{ marginTop: "10px", cursor: "pointer" }}
-              htmlFor="description"
-            >
-              description
-            </label>
-            <input
-              type="text"
-              id="description"
-              value={formik.values.description}
-              onChange={formik.handleChange("description")}
-              onBlur={formik.handleBlur("description")}
-            />
-            {formik.touched.description && formik.errors.description ? (
-              <div className="error">{formik.errors.description}</div>
-            ) : null}
-            <button type="submit">Update Post</button>
-          </form>
-        </div>
+              </div>
+            )}
+          </Dropzone>
+          {formik.touched.image && formik.errors.image ? (
+            <div className="error">{formik.errors.image}</div>
+          ) : null}
+          <Input
+            type="text"
+            name="description"
+            id="description"
+            placeholder="Description"
+            label="Description"
+            fullWidth
+            value={formik.values.description}
+            onChange={formik.handleChange("description")}
+            onBlur={formik.handleBlur("description")}
+            error={
+              formik.errors.description && formik.touched.description
+                ? formik.errors?.description
+                : null
+            }
+          />
+
+          <Button text="Update Post" type="submit" />
+        </Form>
       </div>
     </div>
   );

@@ -6,6 +6,9 @@ import * as Yup from "yup";
 import { createPostAction } from "../../redux/slices/Post/Post";
 import { useDispatch } from "react-redux";
 import { AiFillCloseCircle } from "react-icons/ai";
+import Button from "../../components/Button/Button";
+import Form from "../../components/Form/Form";
+import Input from "../../components/Input/Input";
 const formSchema = Yup.object({
   description: Yup.string().required("the description is required"),
   image: Yup.string().required("the image is required"),
@@ -27,15 +30,53 @@ const AddPostForm = ({ addPost, setAddPost }) => {
 
   return (
     <div className="AddPostForm">
-      <div className="add-post-model">
-        <div
-          className="close-form"
-          onClick={() => {
-            setAddPost(false);
-          }}
+      <Form
+        title="Add Post"
+        onClick={() => {
+          setAddPost(false);
+        }}
+        onSubmit={formik.handleSubmit}
+      >
+        <Dropzone
+          onDrop={(acceptedFiles) =>
+            formik.setFieldValue("image", acceptedFiles[0])
+          }
+          accept="image/png image/jpeg"
+          onBlur={formik.handleBlur("image")}
         >
-          <AiFillCloseCircle size={20} />
-        </div>
+          {({ getRootProps, getInputProps }) => (
+            <div className="container">
+              <div
+                {...getRootProps({
+                  className: "dropzone",
+                  onDrop: (event) => event.stopPropagation(),
+                })}
+              >
+                <input {...getInputProps()} />
+                <p className="dropzoneInput" style={{ borderRadius: "10px" }}>
+                  + Add the image here
+                </p>
+              </div>
+            </div>
+          )}
+        </Dropzone>
+        <Input
+          type="text"
+          name="description"
+          id="description"
+          placeholder="Description"
+          label="Description"
+          fullWidth
+          value={formik.values.description}
+          onChange={formik.handleChange("description")}
+          onBlur={formik.handleBlur("description")}
+          error={
+            formik.errors.description && formik.touched.description
+              ? formik.errors?.description
+              : null
+          }
+        />
+        {/* <div className="add-post-model">
         <h2>Add Post</h2>
         <form className="form-post" onSubmit={formik.handleSubmit}>
           <Dropzone
@@ -77,9 +118,11 @@ const AddPostForm = ({ addPost, setAddPost }) => {
             onChange={formik.handleChange("description")}
             onBlur={formik.handleBlur("description")}
           />
-          <button type="submit">Create Post</button>
+          
         </form>
-      </div>
+      </div> */}
+        <Button text="Create Post" type="submit" />
+      </Form>
     </div>
   );
 };

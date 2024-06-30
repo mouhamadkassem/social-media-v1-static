@@ -6,8 +6,9 @@ import { useDispatch } from "react-redux";
 import * as Yup from "yup";
 import Select from "react-select";
 import { addProductAction } from "../../../redux/slices/Market/Market";
-import { AiFillCloseCircle } from "react-icons/ai";
 import Button from "../../../components/Button/Button";
+import Form from "../../../components/Form/Form";
+import Input from "../../../components/Input/Input";
 
 const formSchema = Yup.object({
   title: Yup.string().required("title is required"),
@@ -63,110 +64,114 @@ const ProductForm = ({ setShowForm }) => {
   });
   return (
     <div className="ProductForm">
-      <div className="addProductForm">
-        <h2>Add Product</h2>
-        <div className="toClose" onClick={() => setShowForm(false)}>
-          <AiFillCloseCircle size={20} />
-        </div>
-        <form className="product-form" onSubmit={formik.handleSubmit}>
-          <div className="product-input">
-            <Dropzone
-              onDrop={(acceptedFiles) => setImages(acceptedFiles)}
-              accept="image/png image/jpeg"
-              onBlur={formik.handleBlur("image")}
-            >
-              {({ getRootProps, getInputProps }) => (
-                <div className="container">
-                  <div
-                    {...getRootProps({
-                      className: "dropzone",
-                      onDrop: (event) => event.stopPropagation(),
-                    })}
-                  >
-                    <input {...getInputProps()} />
-                    <p>+ Add the image here</p>
-                  </div>
-                </div>
-              )}
-            </Dropzone>
-            {imageRequired ? (
-              <div className="error">iamges is required</div>
-            ) : null}
-          </div>
+      <Form
+        title="Add Product"
+        onSubmit={formik.handleSubmit}
+        onClick={() => setShowForm(false)}
+      >
+        <Dropzone
+          onDrop={(acceptedFiles) => setImages(acceptedFiles)}
+          accept="image/png image/jpeg"
+          onBlur={formik.handleBlur("image")}
+        >
+          {({ getRootProps, getInputProps }) => (
+            <div className="container">
+              <div
+                {...getRootProps({
+                  className: "dropzone",
+                  onDrop: (event) => event.stopPropagation(),
+                })}
+              >
+                <input {...getInputProps()} />
+                <p className="dropzoneInput">+ Add the image here</p>
+              </div>
+            </div>
+          )}
+        </Dropzone>
+        {imageRequired ? <div className="error">iamges is required</div> : null}
 
-          <div className="product-input">
-            <label>Tilte</label>
-            <input
-              type="text"
-              placeholder="Title"
-              value={formik.values.title}
-              onChange={formik.handleChange("title")}
-              onBlur={formik.handleBlur("title")}
-            />
-            {formik.touched.title && formik.errors.title ? (
-              <div className="error">{formik.errors.title}</div>
-            ) : null}
-          </div>
-          <div className="product-input">
-            <Select
-              defaultValue={null}
-              onChange={setSelectedCategory}
-              options={category}
-              placeholder="category default Mix..."
-            />
-          </div>
-          <div className="product-input">
-            <label>Description</label>
-            <input
-              type="text"
-              placeholder="Description"
-              value={formik.values.desc}
-              onChange={formik.handleChange("desc")}
-              onBlur={formik.handleBlur("desc")}
-            />
-            {formik.touched.desc && formik.errors.desc ? (
-              <div className="error">{formik.errors.desc}</div>
-            ) : null}
-          </div>
-          <div className="product-input">
-            <label>Price</label>
-            <input
-              type="number"
-              placeholder="Price $"
-              max="100"
-              value={formik.values.price}
-              onChange={formik.handleChange("price")}
-              onBlur={formik.handleBlur("price")}
-            />
-            {formik.touched.price && formik.errors.price ? (
-              <div className="error">{formik.errors.price}</div>
-            ) : null}
-          </div>
-          <div className="product-input">
-            <label>Phone Number</label>
-            <input
-              type="number"
-              placeholder="Phone Number"
-              value={formik.values.phoneNum}
-              onChange={formik.handleChange("phoneNum")}
-              onBlur={formik.handleBlur("phoneNum")}
-            />
-            {formik.touched.phoneNum && formik.errors.phoneNum ? (
-              <div className="error">{formik.errors.price}</div>
-            ) : null}
-          </div>
+        <Input
+          type="text"
+          name="title"
+          id="title"
+          placeholder="Title Of Product"
+          label="Title"
+          fullWidth
+          value={formik.values.title}
+          onChange={formik.handleChange("title")}
+          onBlur={formik.handleBlur("title")}
+          error={
+            formik.errors.title && formik.touched.title
+              ? formik.errors?.title
+              : null
+          }
+        />
+        <Select
+          defaultValue={null}
+          onChange={setSelectedCategory}
+          options={category}
+          placeholder="category default Mix..."
+          className="selectInput"
+        />
 
-          <div className="product-input">
-            <Select
-              defaultValue={null}
-              onChange={setSelectedCondition}
-              options={condition}
-              placeholder="condition default New..."
-            />
-          </div>
-          <Button type="submit" text="Add Product" />
-        </form>
-      </div>
+        <Input
+          type="text"
+          name="desc"
+          id="desc"
+          placeholder="Description"
+          label="Description"
+          fullWidth
+          value={formik.values.desc}
+          onChange={formik.handleChange("desc")}
+          onBlur={formik.handleBlur("desc")}
+          error={
+            formik.errors.desc && formik.touched.desc
+              ? formik.errors?.desc
+              : null
+          }
+        />
+        <Input
+          type="number"
+          name="price"
+          id="price"
+          placeholder="Price"
+          label="Price"
+          fullWidth
+          value={formik.values.price}
+          onChange={formik.handleChange("price")}
+          onBlur={formik.handleBlur("price")}
+          error={
+            formik.errors.price && formik.touched.price
+              ? formik.errors?.price
+              : null
+          }
+        />
+        <Input
+          type="number"
+          name="phoneNum"
+          id="phoneNum"
+          placeholder="Phone Number"
+          label="Phone Number"
+          fullWidth
+          value={formik.values.phoneNum}
+          onChange={formik.handleChange("phoneNum")}
+          onBlur={formik.handleBlur("phoneNum")}
+          error={
+            formik.errors.phoneNum && formik.touched.phoneNum
+              ? formik.errors?.phoneNum
+              : null
+          }
+        />
+
+        <Select
+          defaultValue={null}
+          onChange={setSelectedCondition}
+          options={condition}
+          placeholder="condition default New..."
+          className="selectInput"
+        />
+        <Button type="submit" text="Add Product" />
+      </Form>
     </div>
   );
 };

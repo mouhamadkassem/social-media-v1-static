@@ -10,6 +10,7 @@ import { fetchProfileDetailsCtrl } from "../../redux/slices/User/User";
 import ScrollToBottom from "react-scroll-to-bottom";
 import dateformat from "dateformat";
 import Loading from "../../components/Loading/Loading";
+import Button from "../../components/Button/Button";
 
 const Chat = () => {
   const [messages, setMessages] = useState([]);
@@ -128,7 +129,7 @@ const Chat = () => {
               // handleTyping();
             }}
           />
-          <button onClick={handleSend}>send</button>
+          <Button text="Send" onClick={handleSend} />
         </div>
       </div>
     </>

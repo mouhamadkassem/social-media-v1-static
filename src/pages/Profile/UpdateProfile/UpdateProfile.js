@@ -7,7 +7,9 @@ import {
   updateProfileAction,
   fetchProfileDetailsCtrl,
 } from "../../../redux/slices/User/User";
-import { AiFillCloseCircle } from "react-icons/ai";
+import Form from "../../../components/Form/Form";
+import Button from "../../../components/Button/Button";
+import Input from "../../../components/Input/Input";
 
 const formSchema = Yup.object({
   firstName: Yup.string().required("the First Name is required"),
@@ -37,75 +39,65 @@ const UpdateProfile = ({ setUpdateProfile }) => {
 
   return (
     <div className="UpdateProfile">
-      <div
-        className="to-close-form"
+      <Form
+        title="Update Profile"
+        onSubmit={formik.handleSubmit}
         onClick={() => {
           setUpdateProfile(false);
         }}
       >
-        <AiFillCloseCircle size={20} />
-      </div>
-      <h2>Update Profile</h2>
-      <form onSubmit={formik.handleSubmit}>
-        <div className="update-pro-input">
-          <label
-            style={{ marginTop: "10px", cursor: "pointer" }}
-            htmlFor="firstName"
-          >
-            First Name
-          </label>
-          <input
-            type="text"
-            id="firstName"
-            value={formik.values.firstName}
-            onChange={formik.handleChange("firstName")}
-            onBlur={formik.handleBlur("firstName")}
-            placeholder="First Name"
-          />
-          {formik.touched.firstName && formik.errors.firstName ? (
-            <div className="error">{formik.errors.firstName}</div>
-          ) : null}
-        </div>
-        <div className="update-pro-input">
-          <label
-            style={{ marginTop: "10px", cursor: "pointer" }}
-            htmlFor="lastName"
-          >
-            Last Name
-          </label>
-          <input
-            type="text"
-            id="lastName"
-            value={formik.values.lastName}
-            onChange={formik.handleChange("lastName")}
-            onBlur={formik.handleBlur("lastName")}
-            placeholder="Last Name"
-          />
-          {formik.touched.lastName && formik.errors.lastName ? (
-            <div className="error">{formik.errors.lastName}</div>
-          ) : null}
-        </div>
+        <Input
+          type="text"
+          name="firstName"
+          id="firstName"
+          placeholder="First Name"
+          label="First Name"
+          fullWidth
+          value={formik.values.firstName}
+          onChange={formik.handleChange("firstName")}
+          onBlur={formik.handleBlur("firstName")}
+          error={
+            formik.errors.firstName && formik.touched.firstName
+              ? formik.errors?.firstName
+              : null
+          }
+        />
 
-        <div className="update-pro-input">
-          <label style={{ marginTop: "10px", cursor: "pointer" }} htmlFor="bio">
-            bio
-          </label>
-          <input
-            type="text"
-            id="bio"
-            value={formik.values.bio}
-            onChange={formik.handleChange("bio")}
-            onBlur={formik.handleBlur("bio")}
-            placeholder="bio..."
-          />
-          {formik.touched.bio && formik.errors.bio ? (
-            <div className="error">{formik.errors.bio}</div>
-          ) : null}
-        </div>
+        <Input
+          type="text"
+          name="lastName"
+          id="lastName"
+          placeholder="Last Name"
+          label="Last Name"
+          fullWidth
+          value={formik.values.lastName}
+          onChange={formik.handleChange("lastName")}
+          onBlur={formik.handleBlur("lastName")}
+          error={
+            formik.errors.lastName && formik.touched.lastName
+              ? formik.errors?.lastName
+              : null
+          }
+        />
+
+        <Input
+          type="text"
+          name="bio"
+          id="bio"
+          placeholder="Write Your Bio"
+          label="Bio"
+          fullWidth
+          value={formik.values.bio}
+          onChange={formik.handleChange("bio")}
+          onBlur={formik.handleBlur("bio")}
+          error={
+            formik.errors.bio && formik.touched.bio ? formik.errors?.bio : null
+          }
+        />
         <div className="btn-update-pro">
-          <button type="submit">Update</button>
+          <Button text="Update" type="submit" />
         </div>
-      </form>
+      </Form>
     </div>
   );
 };

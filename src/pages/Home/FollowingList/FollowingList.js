@@ -29,7 +29,7 @@ const FollowingList = () => {
               value={userToSearch}
               onChange={(e) => setUserToSearch(e.target.value)}
             />
-            <label htmlFor="addFriend">
+            <label className="SearchLabel" htmlFor="addFriend">
               <BiSearchAlt />
             </label>
           </div>

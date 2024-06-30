@@ -1,0 +1,97 @@
+.inputContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  padding: 5px 0;
+  width: 500px;
+  border-bottom: 2px solid var(--border-color);
+}
+
+.inputSubmitBtn {
+  padding: 10px 30px;
+  background-color: var(--effect-color);
+  color: var(--text-color);
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+.disabledInputSumbitBtn {
+  padding: 10px 30px;
+  background-color: var(--back-color);
+  color: var(--text-color);
+  outline: none;
+  border: none;
+  border-radius: 10px;
+  cursor: not-allowed;
+}
+
+.notfulldiv {
+  width: calc(100% - 4px);
+  display: flex;
+  justify-content: space-between;
+}
+
+.fulldiv {
+  width: 100%;
+}
+
+.disabledInput {
+  background-color: #eee;
+  cursor: not-allowed;
+  outline: 0;
+  border: none;
+  margin: auto;
+  padding: 5px;
+  border-radius: 5px;
+}
+
+.input {
+  width: 80%;
+  margin: auto;
+  padding: 5px 0;
+  font-weight: bold;
+  color: var(--dark-bg-color);
+  border-radius: 5px;
+  outline: none;
+}
+
+.input:focus {
+  border: 3px solid var(--effect-color);
+}
+
+.errorInput {
+  text-align: start;
+}
+
+.selectInput {
+  color: var(--dark-bg-color);
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 5px;
+}
+
+.fullWidth {
+  width: calc(100% - 4px);
+}
+
+.label {
+  display: block;
+}
+
+.labelContainer {
+  text-align: start;
+  color: var(--text-color);
+}
+
+@media (max-width: 800px) {
+  .inputContainer {
+    width: 350px;
+  }
+}
+@media (max-width: 480px) {
+  .inputContainer {
+    width: 300px;
+  }
+}

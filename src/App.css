@@ -12,8 +12,9 @@
   --border-color: #ae62f8;
   --input-color: #1e8eab;
   --chat-color: #d22f2a;
+  --error-color: red;
 }
-#root {
+html {
   background-color: var(--fore-color);
 }
 
@@ -24,7 +25,11 @@
   font-family: "Montserrat", sans-serif;
   font-family: "Ubuntu", sans-serif;
   font-family: "Unbounded", cursive;
-  font-size: 15px;
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 24px;
 }
 
 .body {
@@ -39,11 +44,17 @@
 
 @media (max-width: 1200px) {
   .App {
-    font-size: 10px;
+    font-size: 16px;
+  }
+  h3 {
+    font-size: 20px;
   }
 }
 @media (max-width: 756px) {
+  h3 {
+    font-size: 14px;
+  }
   .App {
-    font-size: 8px;
+    font-size: 14px;
   }
 }
