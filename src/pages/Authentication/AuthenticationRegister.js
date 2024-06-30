@@ -55,7 +55,11 @@ const Authentication = ({ setLogin, showModel, setShowModel }) => {
   }
 
   return (
-    <Form onSubmit={formik.handleSubmit} title="Create Account">
+    <Form
+      onClick={() => setShowModel(false)}
+      onSubmit={formik.handleSubmit}
+      title="Create Account"
+    >
       {appErrRegister ? <div className="error">{appErrRegister}</div> : null}
       <Input
         type="firstName"
