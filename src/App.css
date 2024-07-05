@@ -1,17 +1,20 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,300;0,400;0,500;0,700;1,100&family=Ubuntu:ital,wght@0,400;0,500;1,300;1,400&family=Unbounded:wght@300&display=swap");
 
 :root {
-  --bg-color: #3f5e60;
+  /* --bg-color: #3f5e60; */
+  --bg-color: #f0ffff;
   --dark-bg-color: #142664;
   --fore-color: #bac7cd;
-  --text-color: #afdde5;
-  --effect-color: #17e9e0;
+  --form-text-color: #afdde5;
+  --text-color: #2f4f4f;
+  /* --effect-color: #17e9e0; */
+  --effect-color: #000080;
   --hover-color: #66fcf1;
   --btn-left-color: #cae4f6;
   --btn-right-color: #120460;
   --border-color: #ae62f8;
   --input-color: #1e8eab;
-  --chat-color: #d22f2a;
+  --chat-color: #4682b4;
   --error-color: red;
 }
 html {
@@ -29,7 +32,7 @@ html {
 }
 
 h3 {
-  font-size: 24px;
+  font-size: 22px;
 }
 
 .body {
@@ -44,7 +47,7 @@ h3 {
 
 @media (max-width: 1200px) {
   h3 {
-    font-size: 20px;
+    font-size: 18px;
   }
   .App {
     font-size: 16px;
@@ -52,9 +55,9 @@ h3 {
 }
 @media (max-width: 756px) {
   h3 {
-    font-size: 16px;
+    font-size: 14px;
   }
   .App {
-    font-size: 14px;
+    font-size: 12px;
   }
 }

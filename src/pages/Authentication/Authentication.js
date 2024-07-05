@@ -72,7 +72,6 @@ const Authentication = () => {
           )}
 
           {login ? (
-            // <form className="auth-form">
             <Form
               onClick={handleModel}
               title="Login In Your Account"

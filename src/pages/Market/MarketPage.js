@@ -28,7 +28,7 @@ const MarketPage = () => {
 
         {loading && !products ? <LoadingMarket /> : <ProductLists />}
 
-        {showForm ? <ProductForm setShowForm={setShowForm} /> : null}
+        {showForm ? <ProductForm setShowForm={setShowForm} /> : <></>}
       </div>
     </>
   );

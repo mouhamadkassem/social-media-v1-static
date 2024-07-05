@@ -82,7 +82,7 @@
 
 .labelContainer {
   text-align: start;
-  color: var(--text-color);
+  color: var(--form-text-color);
 }
 
 @media (max-width: 800px) {

@@ -1,10 +1,15 @@
 .ProductForm {
   position: fixed;
   left: 50%;
-  top: 90%;
+  top: 92.5%;
   transform: translate(-50%, -50%);
 }
 
+@media (min-width: 756px) {
+  .ProductForm {
+    top: 97%;
+  }
+}
 @media (min-width: 1200px) {
   .ProductForm {
     top: 95%;

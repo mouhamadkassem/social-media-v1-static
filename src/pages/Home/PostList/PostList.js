@@ -89,7 +89,7 @@ const PostList = () => {
                   <Link to={`/profile/${post?.user?._id}`}>
                     <img src={post?.user?.profilePhoto} alt="" />
                   </Link>
-                  <div>
+                  <div className="userNamePost">
                     <h3>
                       {post?.user?.firstName} {post?.user?.lastName}
                     </h3>

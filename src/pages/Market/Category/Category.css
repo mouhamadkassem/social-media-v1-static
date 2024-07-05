@@ -10,7 +10,8 @@
 }
 
 .category-item {
-  background-color: var(--dark-bg-color);
+  background-color: var(--effect-color);
+  color: var(--hover-color);
   width: 80%;
   text-align: center;
   padding: 15px;

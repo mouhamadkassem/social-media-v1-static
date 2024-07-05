@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import "./ProfileSide.css";
-import Profileimg from "../../../assets/img/download.jfif";
+import Profileimg from "../../../assets/img/default.jpg";
 import { useDispatch, useSelector } from "react-redux";
 import { userdetailsAction } from "../../../redux/slices/User/User";
 import Button from "../../../components/Button/Button";

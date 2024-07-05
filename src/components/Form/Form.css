@@ -6,6 +6,7 @@
   transform: translate(-50%, -50%);
   padding: 10px;
   background-color: var(--dark-bg-color);
+  color: var(--form-text-color);
   border-radius: 10px 20px 10px 0;
   display: flex;
   flex-direction: column;
@@ -13,14 +14,17 @@
   text-align: center;
 }
 
-.showModel {
+.showModel svg {
   position: absolute;
   right: 10px;
   top: 10px;
   cursor: pointer;
   color: var(--effect-color);
+  background: var(--hover-color);
+  border-radius: 100%;
 }
 
-.showModel:hover {
+.showModel svg:hover {
   color: var(--hover-color);
+  background: var(--effect-color);
 }

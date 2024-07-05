@@ -32,6 +32,9 @@
 
 .nav-profile {
   padding-right: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .nav-profile img {
@@ -61,6 +64,7 @@
   border-radius: 0 0 10px 10px;
   position: absolute;
   padding: 10px;
+  top: 50px;
   right: 20px;
 }
 

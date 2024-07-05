@@ -12,6 +12,7 @@ import {
   userdetailsAction,
   userLogoutAction,
 } from "../../redux/slices/User/User";
+import Image from "../../assets/img/default.jpg";
 
 const Navbar = () => {
   const [addPost, setAddPost] = useState(false);
@@ -24,7 +25,7 @@ const Navbar = () => {
   useEffect(() => {
     dispatch(userdetailsAction(userLoginId));
   }, [dispatch]);
-  const { userLoginDetails } = useSelector((state) => state?.user);
+  const { userLoginDetails, loading } = useSelector((state) => state?.user);
   return (
     <nav className="navbar">
       <div className="logo-icon">
@@ -65,7 +66,12 @@ const Navbar = () => {
           setShowSetting(!showSetting);
         }}
       >
-        <img src={userLoginDetails?.profilePhoto} alt="profileImg" />
+        {!userLoginDetails ? (
+          <img src={Image} alt="profileImg" />
+        ) : (
+          <img src={userLoginDetails?.profilePhoto} alt="profileImg" />
+        )}
+
         {showSetting ? (
           <div className="imgProfile-setting">
             <Link

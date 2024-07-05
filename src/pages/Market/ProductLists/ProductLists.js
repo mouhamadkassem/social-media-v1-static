@@ -35,9 +35,9 @@ const ProductLists = () => {
                       <h3>{product?.price}$</h3>
                       <div className="rating">
                         {product?.rating}
-                        <div>
-                          <AiFillStar size={20} />
-                        </div>{" "}
+
+                        <AiFillStar size={20} />
+
                         <span>({product?.views?.length})</span>
                       </div>
                     </div>

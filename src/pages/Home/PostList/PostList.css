@@ -9,6 +9,11 @@
   margin-top: 20px;
 }
 
+.userNamePost {
+  display: flex;
+  align-items: center;
+}
+
 .userDetailsPost {
   padding: 10px;
 }
@@ -48,7 +53,14 @@
   color: var(--hover-color);
 }
 
-@media (max-width: 1400px) {
+@media (max-width: 1200px) {
+  .postUser img {
+    width: 75px;
+    height: 75px;
+    border: 2px solid var(--border-color);
+  }
+}
+@media (max-width: 756px) {
   .postUser img {
     width: 50px;
     height: 50px;
