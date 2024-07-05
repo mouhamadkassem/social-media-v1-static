@@ -19,16 +19,16 @@ const ProductLists = () => {
             <h1 className="Product-category">{section}</h1>
             <div className="items">
               {products?.map((product, index) => (
-                <div key={index}>
+                <>
                   {section === product?.category ? (
-                    <div className="item">
+                    <div className="item" key={index}>
                       <Link
                         to={`/product/${product?._id}`}
                         className="productLink"
                       >
                         <img src={product?.imgs[0]} alt="" />
                       </Link>
-                      <h2>{product?.title}</h2>
+                      <h3>{product?.title}</h3>
                       <p>
                         {product?.user?.firstName} {product?.user?.lastName}
                       </p>
@@ -42,7 +42,7 @@ const ProductLists = () => {
                       </div>
                     </div>
                   ) : null}
-                </div>
+                </>
               ))}
             </div>
           </div>

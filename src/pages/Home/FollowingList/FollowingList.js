@@ -4,13 +4,22 @@ import { Link } from "react-router-dom";
 import "./FollowingList.css";
 import { BsFillPersonLinesFill, BsFillChatDotsFill } from "react-icons/bs";
 import { BiSearchAlt } from "react-icons/bi";
+import Button from "../../../components/Button/Button";
 
-const FollowingList = () => {
+const FollowingList = ({ handleShowLayout }) => {
   const [userToSearch, setUserToSearch] = useState("");
   const { userLoginDetails } = useSelector((state) => state?.user);
 
   return (
     <div className="FollowingList">
+      {handleShowLayout ? (
+        <div className="toggleLayout">
+          <Button text="Profile Post" onClick={handleShowLayout} />
+        </div>
+      ) : (
+        <></>
+      )}
+
       {userLoginDetails?.following?.length <= 0 ? (
         <div className="noFollowing">
           <p>you are not following any user yet</p>

@@ -93,6 +93,9 @@
 
 @media (max-width: 756px) {
   .FollowingList {
-    display: none;
+    position: absolute;
+    width: 100%;
+    top: 70px;
+    height: calc(100vh - 70px);
   }
 }

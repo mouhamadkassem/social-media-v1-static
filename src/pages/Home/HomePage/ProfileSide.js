@@ -6,7 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { userdetailsAction } from "../../../redux/slices/User/User";
 import Button from "../../../components/Button/Button";
 
-const ProfileSide = () => {
+const ProfileSide = ({ handleShowLayout }) => {
   const dispatch = useDispatch();
   const userAuth = JSON.parse(localStorage.getItem("user-auth"));
 
@@ -22,6 +22,13 @@ const ProfileSide = () => {
 
   return (
     <div className="ProfileSide">
+      {handleShowLayout ? (
+        <div className="toggleLayout">
+          <Button text="Following List" onClick={handleShowLayout} />
+        </div>
+      ) : (
+        <></>
+      )}
       <div className="profile-home">
         <Link to={`/profile/${userAuth?.id}`}>
           <img src={userLoginDetails?.profilePhoto} alt="" />{" "}

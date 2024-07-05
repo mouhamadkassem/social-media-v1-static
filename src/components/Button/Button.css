@@ -53,6 +53,7 @@
   }
 }
 @media (max-width: 550px) {
+  .loadingBtn,
   .btn {
     padding: 3px 6px;
     font-size: 14px;

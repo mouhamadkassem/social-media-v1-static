@@ -4,6 +4,33 @@
   gap: calc(2% / 2);
 }
 
+.toggleLayout {
+  text-align: end;
+}
+
+.phoneNav {
+  background-color: var(--dark-bg-color);
+  position: fixed;
+  top: 50px;
+  left: 50%;
+  transform: translate(-50%, 0);
+  display: flex;
+  padding: 2px 15px;
+  border-radius: 0 0 10px 10px;
+  font-size: 12px;
+  z-index: 10;
+}
+
+.phoneNavOption {
+  margin: 0 5px;
+  cursor: pointer;
+  text-wrap: nowrap;
+}
+
+.phoneNavOptionSelected {
+  color: var(--effect-color);
+}
+
 @media (max-width: 1200px) {
   .home-page {
     display: grid;

@@ -56,8 +56,12 @@
   margin: 0;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 756px) {
   .ProfileSide {
-    display: none;
+    position: absolute;
+    width: 100%;
+    margin-top: 0;
+    top: 70px;
+    height: calc(100vh - 70px);
   }
 }
