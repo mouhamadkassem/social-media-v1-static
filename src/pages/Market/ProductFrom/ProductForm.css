@@ -3,6 +3,7 @@
   left: 50%;
   top: 92.5%;
   transform: translate(-50%, -50%);
+  z-index: 10;
 }
 
 @media (min-width: 756px) {

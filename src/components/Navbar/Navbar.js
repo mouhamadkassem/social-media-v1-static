@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import "./Navbar.css";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { AiTwotoneHome, AiOutlineUsergroupAdd } from "react-icons/ai";
 import { BsFillPersonLinesFill } from "react-icons/bs";
 import { SiHomeassistantcommunitystore } from "react-icons/si";
@@ -18,6 +18,8 @@ const Navbar = () => {
   const [addPost, setAddPost] = useState(false);
   const [showSetting, setShowSetting] = useState(false);
 
+  const location = useLocation().pathname.split("/")[1];
+
   const dispatch = useDispatch();
 
   const userLoginId = JSON.parse(localStorage.getItem("user-auth")).id;
@@ -29,13 +31,16 @@ const Navbar = () => {
   return (
     <nav className="navbar">
       <div className="logo-icon">
-        <Link to="/home" className="icon-home">
+        <Link
+          to="/home"
+          className={`icon-home ${location === "home" ? "selectedPath" : ""} `}
+        >
           <AiTwotoneHome size={30} />
         </Link>
       </div>
       <div className="options">
         <Link
-          className="option"
+          className={`option ${location === "home" ? "selectedPath" : ""} `}
           to="/home"
           onClick={() => {
             setAddPost(true);
@@ -47,16 +52,29 @@ const Navbar = () => {
           <AddPostForm addPost={addPost} setAddPost={setAddPost} />
         ) : null}
 
-        <Link className="option" to={`/profile/${userLoginId}`}>
+        <Link
+          className={`option ${location === "profile" ? "selectedPath" : ""} `}
+          to={`/profile/${userLoginId}`}
+        >
           <BsFillPersonLinesFill
             size={20}
             onClick={() => dispatch(fetchProfileDetailsCtrl(userLoginId))}
           />
         </Link>
-        <Link className="option" to="/auth">
+        <Link
+          className={`option ${location === "auth" ? "selectedPath" : ""} `}
+          to="/auth"
+        >
           <AiOutlineUsergroupAdd size={20} />
         </Link>
-        <Link className="option" to="/market">
+        <Link
+          className={`option ${
+            location === "market" || location === "product"
+              ? "selectedPath"
+              : ""
+          } `}
+          to="/market"
+        >
           <SiHomeassistantcommunitystore size={20} />
         </Link>
       </div>

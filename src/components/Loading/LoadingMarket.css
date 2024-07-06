@@ -14,15 +14,13 @@
   margin-top: 50px;
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
-  margin: 0 2.5%;
+  justify-content: space-around;
 }
 
 .load-market .load {
-  min-width: 20%;
+  min-width: 23%;
   height: 100%;
-  margin-right: 2%;
-  margin-top: 2%;
+  margin-top: 20px;
   background-color: var(--bg-color);
   border-radius: 10px;
   position: relative;
@@ -43,18 +41,13 @@
     width: 79%;
   }
 }
-@media (max-width: 965px) {
+@media (max-width: 800px) {
   .load-market .load {
-    width: 30% !important;
+    width: calc(96% / 2);
   }
 }
-@media (max-width: 725px) {
+@media (max-width: 400px) {
   .load-market .load {
-    width: 45% !important;
-  }
-}
-@media (max-width: 485px) {
-  .load-market .load {
-    width: 50% !important;
+    width: 90%;
   }
 }

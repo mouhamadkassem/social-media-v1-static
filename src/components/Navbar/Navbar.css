@@ -91,6 +91,11 @@
   color: var(--bg-color);
 }
 
+.selectedPath {
+  color: var(--hover-color) !important;
+  border-bottom: 2px solid var(--hover-color);
+}
+
 @media (max-width: 500px) {
   .nav-profile {
     padding-right: 10px;

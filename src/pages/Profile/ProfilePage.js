@@ -181,62 +181,66 @@ const ProfilePage = () => {
               </div>
             </div>
           </div>
-          <div className="pro-posts">
-            {profileUser?.posts?.map((post) => (
-              <div className="pro-post" key={post?._id}>
-                {isUserAuth ? (
-                  <div className="edit-delete-post">
-                    <TbEdit
-                      onClick={() => {
-                        setUpdatePost(true);
-                        setPostId(post?._id);
-                      }}
-                    />
-                    <MdDeleteOutline
-                      onClick={() => {
-                        dispatch(deletePostAction(post?._id));
-                      }}
-                    />
-                  </div>
-                ) : null}
-                <div className="pro-post-img">
-                  <Link to={`/postDetails/${post?._id}`}>
-                    <img src={post?.image} alt="" />
-                  </Link>
-                </div>
-                <div className="pro-opinions">
-                  <div className="opinion">
-                    {post?.likes?.length}
-                    <AiFillLike
-                      size={15}
-                      onClick={() => {
-                        dispatch(likesAction(post?._id));
-                      }}
-                    />
-                  </div>
-                  <div className="opinion">
-                    {post?.disLikes?.length}
-                    <AiFillDislike
-                      size={15}
-                      onClick={() => {
-                        dispatch(dislikesAction(post?._id));
-                      }}
-                    />
-                  </div>
-                  <div className="opinion">
-                    <Link to="/comments">
-                      <FaCommentAlt
-                        size={15}
+          {profileUser?.posts?.length !== 0 ? (
+            <div className="pro-posts">
+              {profileUser?.posts?.map((post) => (
+                <div className="pro-post" key={post?._id}>
+                  {isUserAuth ? (
+                    <div className="edit-delete-post">
+                      <TbEdit
                         onClick={() => {
-                          dispatch(fetchPostDetailsAction(post?._id));
+                          setUpdatePost(true);
+                          setPostId(post?._id);
                         }}
                       />
+                      <MdDeleteOutline
+                        onClick={() => {
+                          dispatch(deletePostAction(post?._id));
+                        }}
+                      />
+                    </div>
+                  ) : null}
+                  <div className="pro-post-img">
+                    <Link to={`/postDetails/${post?._id}`}>
+                      <img src={post?.image} alt="" />
                     </Link>
                   </div>
+                  <div className="pro-opinions">
+                    <div className="opinion">
+                      {post?.likes?.length}
+                      <AiFillLike
+                        size={15}
+                        onClick={() => {
+                          dispatch(likesAction(post?._id));
+                        }}
+                      />
+                    </div>
+                    <div className="opinion">
+                      {post?.disLikes?.length}
+                      <AiFillDislike
+                        size={15}
+                        onClick={() => {
+                          dispatch(dislikesAction(post?._id));
+                        }}
+                      />
+                    </div>
+                    <div className="opinion">
+                      <Link to="/comments">
+                        <FaCommentAlt
+                          size={15}
+                          onClick={() => {
+                            dispatch(fetchPostDetailsAction(post?._id));
+                          }}
+                        />
+                      </Link>
+                    </div>
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="no-pro-posts">No Post Yet</div>
+          )}
 
           {updateProfile ? (
             <UpdateProfile setUpdateProfile={setUpdateProfile} />

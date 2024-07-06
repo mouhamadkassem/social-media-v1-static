@@ -159,6 +159,14 @@
   width: 40%;
 }
 
+.no-pro-posts {
+  text-align: center;
+  background-color: var(--bg-color);
+  border-radius: 10px;
+  margin-top: 25px;
+  padding: 10px;
+}
+
 .user-interaction {
   display: flex;
   justify-content: space-around;
