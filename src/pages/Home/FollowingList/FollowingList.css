@@ -80,6 +80,10 @@
   transition: 0.3s;
 }
 
+.friend-action {
+  text-wrap: nowrap;
+}
+
 @media (max-width: 1200px) {
   .friends {
     padding: 10px;

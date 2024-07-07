@@ -60,7 +60,7 @@ const FollowingList = ({ handleShowLayout }) => {
                     {user?.firstName} {user?.lastName}
                   </h4>
                 </div>
-                <div>
+                <div className="friend-action">
                   <Link to={`/profile/${user?._id}`} className="friend-link">
                     <BsFillPersonLinesFill />
                   </Link>

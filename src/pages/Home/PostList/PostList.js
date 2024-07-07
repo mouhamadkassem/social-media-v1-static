@@ -106,7 +106,7 @@ const PostList = () => {
               </div>
               <div className="opinions">
                 <div className="opinion">
-                  {post?.likes?.length}{" "}
+                  {post?.likes?.length}
                   <AiFillLike
                     onClick={() => {
                       likePost(index, post?._id);
@@ -114,7 +114,7 @@ const PostList = () => {
                   />
                 </div>
                 <div className="opinion">
-                  {post?.disLikes?.length}{" "}
+                  {post?.disLikes?.length}
                   <AiFillDislike
                     onClick={() => {
                       disLikePost(index, post?._id);
@@ -122,7 +122,7 @@ const PostList = () => {
                   />
                 </div>
                 <div className="opinion">
-                  <Link to="/comments">
+                  <Link to="/comments" style={{ display: "flex" }}>
                     <FaCommentAlt
                       onClick={() => {
                         dispatch(fetchPostDetailsAction(post?._id));

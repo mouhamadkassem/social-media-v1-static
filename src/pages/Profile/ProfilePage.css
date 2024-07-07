@@ -112,7 +112,7 @@
 }
 
 .pro-post {
-  background: linear-gradient(45deg, var(--bg-color), var(--dark-bg-color));
+  background: linear-gradient(225deg, var(--bg-color), var(--dark-bg-color));
   padding: 15px 0;
   border-radius: 10px;
   width: 31%;

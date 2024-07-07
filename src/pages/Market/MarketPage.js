@@ -8,25 +8,35 @@ import LoadingMarket from "../../components/Loading/LoadingMarket";
 import { useDispatch, useSelector } from "react-redux";
 import { fetchProductAction } from "../../redux/slices/Market/Market";
 
+const category = ["Cars", "Electronics", "Mobile", "Sports", "Services"];
+
 const MarketPage = () => {
   const [showForm, setShowForm] = useState(false);
+  const [selectedCategory, setSelectedCategory] = useState("All");
 
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchProductAction());
   }, [dispatch]);
 
-  const { loading, appErr, serverErr, products } = useSelector(
-    (state) => state.market
-  );
+  const { loading, products } = useSelector((state) => state.market);
 
   return (
     <>
       <Navbar />
       <div className="MarketPage">
-        <Category setShowForm={setShowForm} />
+        <Category
+          setShowForm={setShowForm}
+          categories={category}
+          selectedCategory={selectedCategory}
+          setSelectedCategory={setSelectedCategory}
+        />
 
-        {loading && !products ? <LoadingMarket /> : <ProductLists />}
+        {loading && !products ? (
+          <LoadingMarket />
+        ) : (
+          <ProductLists selectedCategory={selectedCategory} />
+        )}
 
         {showForm ? <ProductForm setShowForm={setShowForm} /> : <></>}
       </div>

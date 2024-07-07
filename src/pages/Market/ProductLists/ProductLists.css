@@ -43,6 +43,13 @@
   -moz-box-shadow: -5px 8px 5px -5px var(--effect-color);
 }
 
+.emptyCategory {
+  margin-top: 50px;
+  background-color: var(--bg-color);
+  padding: 10px 15px;
+  border-radius: 10px;
+}
+
 .item img {
   border-radius: 10px 10px 0 0;
   width: 100%;
@@ -101,5 +108,9 @@
   }
   .rating {
     font-size: 14px;
+  }
+
+  .emptyCategory {
+    width: 300px;
   }
 }

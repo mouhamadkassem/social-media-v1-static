@@ -1,40 +1,33 @@
-import React, { useState } from "react";
-import { useDispatch } from "react-redux";
-import {
-  categoryProductAction,
-  fetchProductAction,
-} from "../../../redux/slices/Market/Market";
+import React from "react";
 import "./Category.css";
 import Button from "../../../components/Button/Button";
 
-const category = ["Cars", "Electronics", "Mobile", "Sports", "Services"];
-
-const Category = ({ setShowForm }) => {
-  const [selectedType, setSelectedType] = useState("All");
-  const dispatch = useDispatch();
-
+const Category = ({
+  setShowForm,
+  categories,
+  selectedCategory,
+  setSelectedCategory,
+}) => {
   return (
     <div className="Category">
       <div
         className={`category-item ${
-          selectedType === "All" ? "selectedType" : ""
+          selectedCategory === "All" ? "selectedType" : ""
         }`}
         onClick={() => {
-          dispatch(fetchProductAction());
-          setSelectedType("All");
+          setSelectedCategory("All");
         }}
       >
         All
       </div>
-      {category.map((type, index) => (
+      {categories?.map((type, index) => (
         <div
           className={`category-item ${
-            selectedType === type ? "selectedType" : ""
+            selectedCategory === type ? "selectedType" : ""
           }`}
           key={index}
           onClick={() => {
-            dispatch(categoryProductAction(type));
-            setSelectedType(type);
+            setSelectedCategory(type);
           }}
         >
           {type}

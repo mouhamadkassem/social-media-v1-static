@@ -1,7 +1,5 @@
 .ProductDetails {
   position: absolute;
-  width: 100vw;
-
   background: linear-gradient(45deg, var(--fore-color), var(--bg-color));
   top: 50px;
   display: flex;
@@ -37,7 +35,6 @@
 }
 
 .img-side {
-  width: 100%;
   padding: 10px;
   text-align: center;
   border-radius: 5px;
@@ -136,6 +133,12 @@ input[type="range"]::-webkit-slider-runnable-track {
   margin-top: 10px;
   cursor: pointer;
   font-weight: 400;
+}
+
+@media (min-width: 1000px) {
+  .img-side {
+    width: 50%;
+  }
 }
 
 @media (max-width: 1200px) {
