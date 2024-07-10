@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import PostList from "./PostList/PostList";
 import ProfileSide from "./HomePage/ProfileSide";
 import FollowingList from "./FollowingList/FollowingList";
@@ -10,13 +10,15 @@ const Home = () => {
   const [showFollowingList, setShowFollowingList] = useState(true);
   const [showLayout, setShowLayout] = useState("Posts");
 
+  /////////////////////// Resize is re Rendered every single rezise , try use Condition
+
   window.addEventListener("resize", () => {
     setWidth(window.innerWidth);
   });
 
-  const handleShowLayout = () => {
+  const handleShowLayout = useCallback(() => {
     setShowFollowingList(!showFollowingList);
-  };
+  }, [showFollowingList]);
 
   return (
     <>
@@ -57,7 +59,9 @@ const Home = () => {
         {width > 1200 ? (
           <>
             <ProfileSide />
+
             <PostList />
+
             <FollowingList />
           </>
         ) : width > 756 ? (

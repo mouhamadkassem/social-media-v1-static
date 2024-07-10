@@ -1,80 +1,13 @@
-import React, { useEffect, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React from "react";
 import LoadingPost from "../../../components/Loading/LoadingPost";
 import { AiFillDislike, AiFillLike } from "react-icons/ai";
 import { FaCommentAlt } from "react-icons/fa";
 import "./PostList.css";
-import {
-  fetchPostsAction,
-  likesAction,
-  dislikesAction,
-  fetchPostDetailsAction,
-} from "../../../redux/slices/Post/Post";
 import { Link } from "react-router-dom";
-import {
-  handleOppositeReview,
-  handleReview,
-  isUserExistInList,
-} from "./handleLikes";
+import { usePostList } from "./usePostList";
 
 const PostList = () => {
-  const { postList, serverErr, appErr, loading, postLike, newPost } =
-    useSelector((state) => state?.post);
-  const [posts, setPosts] = useState([]);
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    if (Array.isArray(postList)) {
-      setPosts(postList);
-    }
-  }, [postList]);
-
-  useEffect(() => {
-    dispatch(fetchPostsAction());
-  }, [newPost]);
-
-  const likePost = (index, id) => {
-    let updatedPost = posts;
-    const isUserLikedPost = isUserExistInList(posts[index]?.likes);
-
-    if (!isUserLikedPost) {
-      updatedPost = handleOppositeReview(
-        posts[index]?.disLikes,
-        updatedPost,
-        id,
-        true
-      );
-    } else {
-      updatedPost = handleReview(posts[index]?.likes, updatedPost, id, true);
-    }
-
-    if (updatedPost) setPosts(updatedPost);
-    dispatch(likesAction(id));
-  };
-
-  const disLikePost = (index, id) => {
-    let updatedPost = posts;
-    const isUserdisLikedPost = isUserExistInList(posts[index]?.disLikes);
-
-    if (!isUserdisLikedPost) {
-      updatedPost = handleOppositeReview(
-        posts[index]?.likes,
-        updatedPost,
-        id,
-        false
-      );
-    } else {
-      updatedPost = handleReview(
-        posts[index]?.disLikes,
-        updatedPost,
-        id,
-        false
-      );
-    }
-
-    if (updatedPost) setPosts(updatedPost);
-    dispatch(dislikesAction(id));
-  };
+  const { postList, posts, likePost, disLikePost, loading } = usePostList();
 
   return (
     <div className="PostList">
@@ -122,12 +55,11 @@ const PostList = () => {
                   />
                 </div>
                 <div className="opinion">
-                  <Link to="/comments" style={{ display: "flex" }}>
-                    <FaCommentAlt
-                      onClick={() => {
-                        dispatch(fetchPostDetailsAction(post?._id));
-                      }}
-                    />
+                  <Link
+                    to={`/comments/${post?._id}`}
+                    style={{ display: "flex" }}
+                  >
+                    <FaCommentAlt />
                   </Link>
                 </div>
               </div>

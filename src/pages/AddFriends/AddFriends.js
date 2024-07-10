@@ -24,7 +24,6 @@ const AddFriends = () => {
   return (
     <>
       <Navbar />
-
       <div className="AddFriends">
         <div className="toSearch">
           <input

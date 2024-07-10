@@ -45,7 +45,7 @@ const ProductLists = ({ selectedCategory }) => {
               ))}
             </>
           ) : (
-            <div className="emptyCategory">
+            <div className="emptyArray">
               Oops!! No added products match this category yet.
             </div>
           )}

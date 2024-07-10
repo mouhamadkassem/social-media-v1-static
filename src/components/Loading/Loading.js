@@ -14,19 +14,19 @@ const Loading = ({ size }) => {
     : { width: "50px", height: "50px" };
 
   return (
-    <div class="neon" style={sizeObj}>
-      <div class="big-square">
-        <div class="second2-square">
-          <div class="second-square">
-            <div class="small-square">
-              <div class="aqua-led" style={ledSize}></div>
-              <div class="violet-led" style={ledSize}></div>
-              <div class="circle"></div>
-              <div class="circle circle1"></div>
-              <div class="circle circle2"></div>
-              <div class="sign sign"></div>
-              <div class="sign sign1"></div>
-              <div class="sign sign2"></div>
+    <div className="neon" style={sizeObj}>
+      <div className="big-square">
+        <div className="second2-square">
+          <div className="second-square">
+            <div className="small-square">
+              <div className="aqua-led" style={ledSize}></div>
+              <div className="violet-led" style={ledSize}></div>
+              <div className="circle"></div>
+              <div className="circle circle1"></div>
+              <div className="circle circle2"></div>
+              <div className="sign sign"></div>
+              <div className="sign sign1"></div>
+              <div className="sign sign2"></div>
             </div>
           </div>
         </div>

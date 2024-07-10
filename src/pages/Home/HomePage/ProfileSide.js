@@ -10,13 +10,9 @@ const ProfileSide = ({ handleShowLayout }) => {
   const dispatch = useDispatch();
   const userAuth = JSON.parse(localStorage.getItem("user-auth"));
 
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
   useEffect(() => {
     dispatch(userdetailsAction(userAuth?._id));
-    // dispatch(fetchProductAction());
   }, [dispatch]);
-
-  //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 
   const { userLoginDetails } = useSelector((state) => state?.user);
 

@@ -114,7 +114,7 @@ const commentSlice = createSlice({
     });
     builder.addCase(editComment.fulfilled, (state, action) => {
       state.loading = false;
-      state.editComment = action.payload;
+      state.editedComment = action.payload;
       state.appErr = undefined;
       state.serverErr = undefined;
     });
@@ -130,7 +130,7 @@ const commentSlice = createSlice({
     });
     builder.addCase(deleteComment.fulfilled, (state, action) => {
       state.loading = false;
-      state.deleteComment = action.payload;
+      state.deletedComment = action.payload;
       state.appErr = undefined;
       state.serverErr = undefined;
     });

@@ -4,7 +4,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch, useSelector } from "react-redux";
 import { userRegisterAction } from "../../redux/slices/User/User";
-import { AiFillCloseCircle } from "react-icons/ai";
 import "./Authentication.css";
 import Button from "../../components/Button/Button";
 import Form from "../../components/Form/Form";

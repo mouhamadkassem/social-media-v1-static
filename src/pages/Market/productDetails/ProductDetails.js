@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useCallback, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { Link, Navigate, useParams } from "react-router-dom";
 import {
@@ -30,13 +30,13 @@ const ProductDetails = () => {
     (user) => user.toString() === userLoginDetails?._id
   );
 
-  const addRating = () => {
+  const addRating = useCallback(() => {
     const data = {
       newRating: range,
       id,
     };
     dispatch(addRatingAction(data));
-  };
+  }, [range]);
 
   useEffect(() => {
     dispatch(productViewedAction(id));
@@ -112,7 +112,7 @@ const ProductDetails = () => {
             ) : (
               <>
                 {loading ? (
-                  <Button loadgin />
+                  <Button loading />
                 ) : (
                   <>
                     <Button text="Add Rating" onClick={addRating} />

@@ -4,7 +4,6 @@ import { useFormik } from "formik";
 import * as Yup from "yup";
 import Dropzone from "react-dropzone";
 import { UploadProfileImgAction } from "../../../../redux/slices/User/User";
-import { AiFillCloseCircle } from "react-icons/ai";
 import Form from "../../../../components/Form/Form";
 import Button from "../../../../components/Button/Button";
 

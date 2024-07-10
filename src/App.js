@@ -10,6 +10,7 @@ import PostDetails from "./pages/Profile/PostDetails/PostDetails";
 import Chat from "./pages/Chat/Chat";
 import ProductDetails from "./pages/Market/productDetails/ProductDetails";
 import ProtectRoute from "./components/protectRoute/protectRoute";
+import { PostListContextProvider } from "./pages/Home/PostList/usePostList";
 
 function App() {
   return (
@@ -23,7 +24,9 @@ function App() {
             path="/home"
             element={
               <ProtectRoute>
-                <Home />
+                <PostListContextProvider>
+                  <Home />
+                </PostListContextProvider>
               </ProtectRoute>
             }
           />
@@ -41,7 +44,9 @@ function App() {
             path="/profile/:id"
             element={
               <ProtectRoute>
-                <ProfilePage />
+                <PostListContextProvider>
+                  <ProfilePage />
+                </PostListContextProvider>
               </ProtectRoute>
             }
           />
@@ -83,7 +88,7 @@ function App() {
           />
           <Route
             exact
-            path="/comments"
+            path="/comments/:id"
             element={
               <ProtectRoute>
                 <Comments />

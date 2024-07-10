@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useCallback, useState } from "react";
 import "./Authentication.css";
 import { useFormik } from "formik";
 import * as Yup from "yup";
@@ -32,9 +32,9 @@ const Authentication = () => {
     validationSchema: formSchema,
   });
 
-  const handleModel = () => {
+  const handleModel = useCallback(() => {
     setShowModel(false);
-  };
+  }, [showModel]);
 
   const { userAuth, loading, appErr, appErrRegister } = useSelector(
     (state) => state?.user
@@ -66,17 +66,16 @@ const Authentication = () => {
       {showModel && (
         <>
           {login ? (
-            <>{appErr ? <div className="error">{appErr}</div> : null}</>
-          ) : (
-            <></>
-          )}
-
-          {login ? (
             <Form
               onClick={handleModel}
               title="Login In Your Account"
               onSubmit={formik.handleSubmit}
             >
+              {login ? (
+                <>{appErr ? <div className="error">{appErr}</div> : null}</>
+              ) : (
+                <></>
+              )}
               <Input
                 type="email"
                 name="email"

@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import "./AddPostForm.css";
 import Dropzone from "react-dropzone";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { createPostAction } from "../../redux/slices/Post/Post";
 import { useDispatch } from "react-redux";
-import { AiFillCloseCircle } from "react-icons/ai";
 import Button from "../../components/Button/Button";
 import Form from "../../components/Form/Form";
 import Input from "../../components/Input/Input";
@@ -14,7 +13,7 @@ const formSchema = Yup.object({
   image: Yup.string().required("the image is required"),
 });
 
-const AddPostForm = ({ addPost, setAddPost }) => {
+const AddPostForm = ({ setAddPost }) => {
   const dispatch = useDispatch();
   const formik = useFormik({
     initialValues: {
@@ -76,51 +75,6 @@ const AddPostForm = ({ addPost, setAddPost }) => {
               : null
           }
         />
-        {/* <div className="add-post-model">
-        <h2>Add Post</h2>
-        <form className="form-post" onSubmit={formik.handleSubmit}>
-          <Dropzone
-            onDrop={(acceptedFiles) =>
-              formik.setFieldValue("image", acceptedFiles[0])
-            }
-            accept="image/png image/jpeg"
-            onBlur={formik.handleBlur("image")}
-          >
-            {({ getRootProps, getInputProps }) => (
-              <div className="container">
-                <div
-                  {...getRootProps({
-                    className: "dropzone",
-                    onDrop: (event) => event.stopPropagation(),
-                  })}
-                >
-                  <input {...getInputProps()} />
-                  <p
-                    className="cursor-pointer bg-blue-100 mt-2 text-center py-4"
-                    style={{ borderRadius: "10px" }}
-                  >
-                    + Add the image here
-                  </p>
-                </div>
-              </div>
-            )}
-          </Dropzone>
-          <label
-            style={{ marginTop: "10px", cursor: "pointer" }}
-            htmlFor="description"
-          >
-            description
-          </label>
-          <input
-            type="text"
-            id="description"
-            value={formik.values.description}
-            onChange={formik.handleChange("description")}
-            onBlur={formik.handleBlur("description")}
-          />
-          
-        </form>
-      </div> */}
         <Button text="Create Post" type="submit" />
       </Form>
     </div>

@@ -18,16 +18,16 @@ const Navbar = () => {
   const [addPost, setAddPost] = useState(false);
   const [showSetting, setShowSetting] = useState(false);
 
-  const location = useLocation().pathname.split("/")[1];
-
   const dispatch = useDispatch();
-
+  const location = useLocation().pathname.split("/")[1];
   const userLoginId = JSON.parse(localStorage.getItem("user-auth")).id;
 
   useEffect(() => {
     dispatch(userdetailsAction(userLoginId));
   }, [dispatch]);
-  const { userLoginDetails, loading } = useSelector((state) => state?.user);
+
+  const { userLoginDetails } = useSelector((state) => state?.user);
+
   return (
     <nav className="navbar">
       <div className="logo-icon">

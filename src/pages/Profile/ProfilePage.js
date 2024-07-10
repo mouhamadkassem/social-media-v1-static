@@ -54,6 +54,7 @@ const ProfilePage = () => {
   );
 
   const userLogin = JSON.parse(localStorage.getItem("user-auth")).id;
+
   const isFollow = profileUser?.followers?.find(
     (user) => user?._id.toString() === userLogin.toString()
   );
